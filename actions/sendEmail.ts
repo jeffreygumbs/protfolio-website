@@ -43,6 +43,6 @@ try{
     return {
         error: getErrorMessage(error),
     }
-    return{data}
 }
+return{data,}
 }

@@ -16,7 +16,7 @@ export default function Contact() {
         <SectionHeading>Contact Me</SectionHeading>
         <p className='text-gray-700 text-center -mt-6 dark:text-white/80'>Please contact me directly at <a className='underline' href='mailto:jeffreygumbs@gmail.com'>jeffreygumbs@gmail.com</a> or through this form</p>
         <form action={async (formData) => {
-          const {data, error} = sendEmail(formData)
+          const {data, error} = await sendEmail(formData)
           if(error){
             toast.error(error);
             return
