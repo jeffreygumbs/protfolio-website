@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Jeffrey | Personal Portfolio',
-  description: 'Jeffrey Gumbs is a full-stack web developer based in Alberta, CA with 7 years of experience in web development.',
+  description: 'Jeffrey Gumbs is a full-stack web developer based in Alberta, CA with 8 years of experience in web development.',
 }
 
 export default function RootLayout({
