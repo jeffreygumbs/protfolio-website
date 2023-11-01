@@ -54,7 +54,7 @@ export default function Intro() {
       >
         <Link href="#contact" className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition' onClick={() => { setActiveSection('Contact'); setTimeLastClick(Date.now());}}>Contact me here <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition"/></Link>
         <a href='/Jeffrey_Gumbs_Resume.pdf' download className='group bg-white dark:bg-white/10 dark:text-white/60 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110  active:scale-105 transition cursor-pointer borderBlack'>Download Resume <HiDownload className="opacity-60 group-hover:translate-y-1 transition"/></a>
-        <a className='bg-white dark:bg-white/10 dark:text-white/60 p-4 text-gray-700 flex items-center gap-2 rounded-full outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950  active:scale-105 transition cursor-pointer borderBlack'><BsLinkedin/></a>
+        <a href='https://www.linkedin.com/in/jeffrey-gumbs-96889984/' target='_blank' className='bg-white dark:bg-white/10 dark:text-white/60 p-4 text-gray-700 flex items-center gap-2 rounded-full outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950  active:scale-105 transition cursor-pointer borderBlack'><BsLinkedin/></a>
         <a href='https://github.com/jeffreygumbs' target='_blank' className='bg-white dark:bg-white/10 dark:text-white/60 p-4 text-gray-700 text-[1.35rem] flex items-center gap-2 rounded-full outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950  active:scale-105 transition cursor-pointer borderBlack'><FaGithubSquare/></a>
       </motion.div>
     </section>

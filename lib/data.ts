@@ -35,20 +35,20 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
+    title: "Graduated Bootcamp and Continuous Learning",
     location: "Miami, FL",
     description:
       "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
     icon: React.createElement(LuGraduationCap),
-    date: "2019",
+    date: "2006 - present",
   },
   {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
+    title: "Information Technology",
+    location: "Edmonton, AB",
     description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+      "I worked as an Information Technology Specialist for 8 years at a landscape company, managing a network of over 12 servers and computers, including Windows and Linux servers, workstations, and laptops. I also managed the company's website and web applications and implemented and tested cybersecurity measures to protect the company's data and systems. My work helped to improve the company's efficiency, security, and customer service.",
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+    date: "2014 - 2023",
   },
   {
     title: "Full-Stack Developer",
@@ -85,24 +85,36 @@ export const projectsData = [
 ] as const;
 
 export const skillsData = [
+  "Python",
+  "Golang",
+  "Rust",
+  "Bash Script", 
   "HTML",
   "CSS",
   "SASS",
   "JavaScript",
   "TypeScript",
+  "Angular",
+  "Vue",
   "React",
-  "Next.js",
+  "Redux",
+  "Deno",
   "Node.js",
+  "Express",
+  "Next.js",
   "Git",
   "Tailwind",
   "Prisma",
   "MongoDB",
-  "Redux",
   "GraphQL",
   "Apollo",
-  "Express",
   "PostgreSQL",
-  "Python",
   "Django",
   "Framer Motion",
+  "Docker",
+  "Swift",
+  "Java",
+  "Kotlin",
+  "React Native",
+  "Flutter",
 ] as const;
