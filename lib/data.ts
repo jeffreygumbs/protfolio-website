@@ -35,10 +35,10 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated Bootcamp and Continuous Learning",
+    title: "Successful Bootcamp Graduate Committed to Continuous Learning",
     location: "Miami, FL",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
+      "After an intensive 6-month bootcamp program, I proudly earned my Full Stack developer certification. Leveraging my newfound skills, I swiftly secured a position in the field, demonstrating my dedication to continuous growth and excellence.",
     icon: React.createElement(LuGraduationCap),
     date: "2006 - present",
   },
@@ -105,6 +105,7 @@ export const skillsData = [
   "Git",
   "Tailwind",
   "Prisma",
+  "Drizzle",
   "MongoDB",
   "GraphQL",
   "Apollo",
