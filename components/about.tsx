@@ -36,8 +36,7 @@ export default function About() {
 
       <p>
         <span className="italic">Beyond coding</span>, I relish spending quality time with my family and immersing myself in captivating films.{" "}
-        <span className="font-medium">My <span className="underline">love</span> for learning extends beyond programming</span>. I am currently
-        learning about{" "}
+        <span className="font-medium">My <span>love</span> for learning extends beyond programming</span>. I am currently learning about natural language processing (NLP){" "}
         <span className="font-medium">, as I'm currently exploring the fascinating realms of artificial intelligence and machine learning</span>. Additionally, I'm actively pursuing proficiency in a new language.
       </p>
         </motion.section>
