@@ -88,6 +88,7 @@ export const skillsData = [
   "Python",
   "Golang",
   "Rust",
+  "PHP",
   "Bash Script", 
   "HTML",
   "CSS",
