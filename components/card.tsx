@@ -11,7 +11,7 @@ import {
   import Image from "next/image";
 
   type ProjectProps = typeof websiteData[number]
-   
+  
   export function CardDefault({title, description, tags, imageUrl,siteUrl, gitUrl}:ProjectProps) {
     return (
       <Card className="mt-6 w-96">

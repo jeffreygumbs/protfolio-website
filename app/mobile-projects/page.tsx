@@ -32,7 +32,7 @@ function Mobile() {
     <div className='flex flex-wrap gap-6 justify-center my-9'>
     {mobileData.map((mobile, index) => (
     <motion.div key={index} variants={fadeInAnimationVariants} initial="initial" whileInView="animate" viewport={{once: true}} custom={index}>
-   <CardDefault {...mobile}/>
+      <CardDefault {...mobile}/>
    </motion.div>
    ))
    }

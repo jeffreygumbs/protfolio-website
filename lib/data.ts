@@ -71,7 +71,7 @@ export const projectsData = [
       "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
     tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma", "and more"],
     imageUrl: corpcommentImg,
-    projectUrl:"/web-projects"
+    projectUrl:"/web-projects",
   },
   {
     title: "Mobile Application Development Projects",
@@ -79,7 +79,7 @@ export const projectsData = [
       "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
     tags: ["React Native", "Swift", "Kotlin", "Flutter"],
     imageUrl: rmtdevImg,
-    projectUrl:"/mobile-projects"
+    projectUrl:"/mobile-projects",
   },
   {
     title: "Cyber Security Projects",
@@ -87,9 +87,9 @@ export const projectsData = [
       "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
     tags: ["Mobile Testing", "Web Testing", "Network Testing", "Wifi testing", "and more"],
     imageUrl: wordanalyticsImg,
-    projectUrl:"/cybersecurity-projects"
+    projectUrl:"/cybersecurity-projects",
   },
-] as const;
+];
 
 export const skillsData = [
   "Python",
@@ -148,7 +148,7 @@ export const websiteData = [
     gitUrl:"https://github.com/jeffreygumbs/cody",
   },
   
-] as const;
+];
 export const mobileData = [
   {
     title: "Airbnb UI Clone",
@@ -169,4 +169,4 @@ export const mobileData = [
     gitUrl:"https://github.com/jeffreygumbs/cody",
   },
   
-] as const;
+];
