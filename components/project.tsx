@@ -3,10 +3,11 @@ import React,{ useRef } from 'react'
 import Image from 'next/image'
 import { projectsData } from '@/lib/data'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import Link from 'next/link'
 
 type ProjectProps = typeof projectsData[number] 
 
-export default function Project({title, description, tags, imageUrl}:ProjectProps) {
+export default function Project({title, description, tags, imageUrl, projectUrl}:ProjectProps) {
     const ref = useRef<HTMLDivElement>(null)
     const {scrollYProgress} = useScroll({
         target:ref,
@@ -15,12 +16,14 @@ export default function Project({title, description, tags, imageUrl}:ProjectProp
    const scaleProgress = useTransform(scrollYProgress, [0, 1],[0.8, 1] )
    const opacityProgress = useTransform(scrollYProgress, [0, 1],[0.6, 1] )
   return (
+    
     <motion.div ref={ref} style={{
         scale: scaleProgress,
         opacity: opacityProgress,
     }}
-    className='group mb-3 sm:mb-7 last:mb-0'
+    className='group gap-3 mb-3 sm:mb-7 last:mb-0'
     >
+        <Link href={projectUrl} className=' gap-3'>
     <section className=' bg-gray-100 dark:bg-white/10 max-w-[42rem] border border-black/5 overflow-hidden sm:pr-8 relative sm:h-[20rem]  group hover:bg-gray-200 dark:hover:bg-white/20 transition rounded-lg'>
         <div className='pt-4 pb-8 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]'>
         <h3 className='text-2xl font-semibold'>{title}</h3>
@@ -33,6 +36,7 @@ export default function Project({title, description, tags, imageUrl}:ProjectProp
         </div>
         <Image src={imageUrl} alt={title} quality={95} className='absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl group-even:right-[initial] transition group-even:-left-40 group-hover:-translate-x-3 group-hover:-translate-y-3  group-hover:scale-[1.04] group-hover:-rotate-2 group-even:group-hover:translate-x-3 group-even:group-hover:translate-y-3 group-even:group-hover:rotate-2'/>
     </section>
+    </Link>
     </motion.div>
   )
 }

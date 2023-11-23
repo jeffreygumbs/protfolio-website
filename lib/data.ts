@@ -3,33 +3,37 @@ import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
+import annAi from "@/public/AnnAI.png";
+import codyGpt from "@/public/CodyGPT.png";
 import rmtdevImg from "@/public/rmtdev.png";
+import airBnbUi from "@/public/Airbnb-ui.png";
+import warCards from "@/public/war-card.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
 
 export const links = [
   {
     name: "Home",
-    hash: "#home",
+    hash: "/#home",
   },
   {
     name: "About",
-    hash: "#about",
+    hash: "/#about",
   },
   {
     name: "Projects",
-    hash: "#projects",
+    hash: "/#projects",
   },
   {
     name: "Skills",
-    hash: "#skills",
+    hash: "/#skills",
   },
   {
     name: "Experience",
-    hash: "#experience",
+    hash: "/#experience",
   },
   {
     name: "Contact",
-    hash: "#contact",
+    hash: "/#contact",
   },
 ] as const;
 
@@ -62,25 +66,28 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    title: "CorpComment",
+    title: "Web Application Development Projects",
     description:
       "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
+    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma", "and more"],
     imageUrl: corpcommentImg,
+    projectUrl:"/web-projects"
   },
   {
-    title: "rmtDev",
+    title: "Mobile Application Development Projects",
     description:
       "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
+    tags: ["React Native", "Swift", "Kotlin", "Flutter"],
     imageUrl: rmtdevImg,
+    projectUrl:"/mobile-projects"
   },
   {
-    title: "Word Analytics",
+    title: "Cyber Security Projects",
     description:
       "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
+    tags: ["Mobile Testing", "Web Testing", "Network Testing", "Wifi testing", "and more"],
     imageUrl: wordanalyticsImg,
+    projectUrl:"/cybersecurity-projects"
   },
 ] as const;
 
@@ -119,4 +126,47 @@ export const skillsData = [
   "Kotlin",
   "React Native",
   "Flutter",
+] as const;
+
+export const websiteData = [
+  {
+    title: "AnnAI",
+    description:
+      "CorpComment is a web application that allows users to give public feedback to companies.",
+    tags: ["Vite", "Node.js", "Express", "Tailwind", "MongoDB", "OpenAI API"],
+    imageUrl: annAi,
+    siteUrl: "https://ann-ai.vercel.app/",
+    gitUrl:"https://github.com/jeffreygumbs/AnnAI",
+  },
+  {
+    title: "CodyGPT",
+    description:
+      "CorpComment is a web application that allows users to give public feedback to companies.",
+    tags: ["Vite", "CSS", "Node.js", "Express", "OpenAI API"],
+    imageUrl: codyGpt,
+    siteUrl: "https://cody-tau.vercel.app/",
+    gitUrl:"https://github.com/jeffreygumbs/cody",
+  },
+  
+] as const;
+export const mobileData = [
+  {
+    title: "Airbnb UI Clone",
+    description:
+      "CorpComment is a web application that allows users to give public feedback to companies.",
+    tags: ["React Native", "Expo","Clerk",],
+    imageUrl: airBnbUi,
+    siteUrl: "https://ann-ai.vercel.app/",
+    gitUrl:"https://github.com/jeffreygumbs/AnnAI",
+  },
+  {
+    title: "War Cards Game",
+    description:
+      "CorpComment is a web application that allows users to give public feedback to companies.",
+    tags: ["Swift", "Swift UI",],
+    imageUrl: warCards,
+    siteUrl: "https://cody-tau.vercel.app/",
+    gitUrl:"https://github.com/jeffreygumbs/cody",
+  },
+  
 ] as const;
