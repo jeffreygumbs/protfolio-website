@@ -1,5 +1,5 @@
 'use client'
-import { websiteData } from "@/lib/data";
+import { websiteData, mobileData } from "@/lib/data";
 import {
     Card,
     CardHeader,
@@ -39,9 +39,11 @@ import {
           </Typography>
         </CardBody>
         <CardFooter className="pt-0 m-4">
-            <a href={siteUrl} target="_blank">
-          <Button className="px-3">Go To Site</Button>
-          </a>
+            {
+              siteUrl === null ? null : (<a href={siteUrl} target="_blank">
+              <Button className="px-3">Go To Site</Button>
+              </a>)
+            }
           <a href={gitUrl} target="_blank">
           <Button className="ml-2 px-3">Go To GitHub</Button>
           </a>

@@ -148,7 +148,8 @@ export const websiteData = [
     gitUrl:"https://github.com/jeffreygumbs/cody",
   },
   
-];
+  
+]as const;
 export const mobileData = [
   {
     title: "Airbnb UI Clone",
@@ -156,8 +157,8 @@ export const mobileData = [
       "CorpComment is a web application that allows users to give public feedback to companies.",
     tags: ["React Native", "Expo","Clerk",],
     imageUrl: airBnbUi,
-    siteUrl: "https://ann-ai.vercel.app/",
-    gitUrl:"https://github.com/jeffreygumbs/AnnAI",
+    siteUrl: null,
+    gitUrl:"https://github.com/jeffreygumbs/Airbnb-ui-Clone",
   },
   {
     title: "War Cards Game",
@@ -165,8 +166,8 @@ export const mobileData = [
       "CorpComment is a web application that allows users to give public feedback to companies.",
     tags: ["Swift", "Swift UI",],
     imageUrl: warCards,
-    siteUrl: "https://cody-tau.vercel.app/",
-    gitUrl:"https://github.com/jeffreygumbs/cody",
+    siteUrl: null,
+    gitUrl:"https://github.com/jeffreygumbs/War-Card-Game",
   },
   
-];
+]as const;
