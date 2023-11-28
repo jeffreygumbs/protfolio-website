@@ -33,7 +33,7 @@ function Website() {
     <div className='flex flex-wrap gap-6 justify-center my-9'>
    {websiteData.map((website, index) => (
     <motion.div key={index} variants={fadeInAnimationVariants} initial="initial" whileInView="animate" viewport={{once: true}} custom={index}>
-        <CardDefault className='w-1/4' {...website}/>
+        <CardDefault  {...website}/>
     </motion.div>
    ))
    }
