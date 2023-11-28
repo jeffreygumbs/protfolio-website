@@ -1,6 +1,6 @@
 'use client'
 import BackBtn from '@/components/back-btn'
-import { CardDefault } from '@/components/card'
+import { CardDefault } from '@/components/card-mobile'
 import SectionHeading from '@/components/section-heading'
 import { mobileData } from '@/lib/data'
 import { motion } from 'framer-motion'

@@ -1,5 +1,5 @@
 'use client'
-import { websiteData } from "@/lib/data";
+import { mobileData } from "@/lib/data";
 import {
     Card,
     CardHeader,
@@ -10,7 +10,7 @@ import {
   } from "@material-tailwind/react";
   import Image from "next/image";
 
-  type ProjectProps = typeof websiteData[number]
+  type ProjectProps = typeof mobileData[number]
   
   export function CardDefault({title, description, tags, imageUrl,siteUrl, gitUrl}:ProjectProps) {
     return (
