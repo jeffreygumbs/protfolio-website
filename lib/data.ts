@@ -9,7 +9,7 @@ import rmtdevImg from "@/public/rmtdev.png";
 import airBnbUi from "@/public/Airbnb-ui.png";
 import warCards from "@/public/war-card.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
-import animeFun from "@/public/Anime-Fun.png.png";
+import animeFun from "@/public/Anime-Fun.png";
 
 export const links = [
   {
