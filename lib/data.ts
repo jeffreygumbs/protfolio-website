@@ -164,7 +164,7 @@ export const mobileData = [
   {
     title: "Airbnb UI Clone",
     description:
-      "Airbnb inspired this project, and using React Native and Expo was fantastic tool to work with.",
+      "Airbnb inspired this project, and using React Native & Expo was fantastic tool to work with.",
     tags: ["React Native", "Expo","Clerk",],
     imageUrl: airBnbUi,
     siteUrl: null,
