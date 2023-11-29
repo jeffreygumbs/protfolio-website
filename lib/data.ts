@@ -9,6 +9,7 @@ import rmtdevImg from "@/public/rmtdev.png";
 import airBnbUi from "@/public/Airbnb-ui.png";
 import warCards from "@/public/war-card.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
+import animeFun from "@/public/Anime-Fun.png.png";
 
 export const links = [
   {
@@ -146,6 +147,15 @@ export const websiteData = [
     imageUrl: codyGpt,
     siteUrl: "https://cody-tau.vercel.app/",
     gitUrl:"https://github.com/jeffreygumbs/cody",
+  },
+  {
+    title: "Anime Fun",
+    description:
+      "CorpComment is a web application that allows users to give public feedback to companies.",
+    tags: ["Next.js", "Framer Motion", "Server Actions"],
+    imageUrl: animeFun,
+    siteUrl: "https://anime-fun-beta.vercel.app/",
+    gitUrl:"https://github.com/jeffreygumbs/anime-fun",
   },
   
   
