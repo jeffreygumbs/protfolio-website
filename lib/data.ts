@@ -69,7 +69,7 @@ export const projectsData = [
   {
     title: "Web Application Development Projects",
     description:
-      "Check out the Projects section! It’s a showcase of fun, creative sites I’ve built in my spare time. Click on any that interest you for more info.",
+      "Check out the Web Projects section! It’s a showcase of fun, creative sites I’ve built in my spare time. Click on any that interest you for more info.",
     tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma", "and more"],
     imageUrl: corpcommentImg,
     projectUrl:"/web-projects",
@@ -77,7 +77,7 @@ export const projectsData = [
   {
     title: "Mobile Application Development Projects",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
+      "Swipe through my collection of fun and creative mobile apps built during my spare time. Tap any project to dive into the details",
     tags: ["React Native", "Swift", "Kotlin", "Flutter"],
     imageUrl: rmtdevImg,
     projectUrl:"/mobile-projects",
@@ -85,7 +85,7 @@ export const projectsData = [
   {
     title: "Cyber Security Projects",
     description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
+      "Explore the dynamic world of cybersecurity, where I will try and combat evolving threats and defend our digital realm. ",
     tags: ["Mobile Testing", "Web Testing", "Network Testing", "Wifi testing", "and more"],
     imageUrl: wordanalyticsImg,
     projectUrl:"/cybersecurity-projects",
@@ -164,7 +164,7 @@ export const mobileData = [
   {
     title: "Airbnb UI Clone",
     description:
-      "CorpComment is a web application that allows users to give public feedback to companies.",
+      "Airbnb inspired this project, and using React Native and Expo was fantastic tool to work with.",
     tags: ["React Native", "Expo","Clerk",],
     imageUrl: airBnbUi,
     siteUrl: null,
@@ -173,7 +173,7 @@ export const mobileData = [
   {
     title: "War Cards Game",
     description:
-      "CorpComment is a web application that allows users to give public feedback to companies.",
+      "War Cards Game project, was something I enjoyed working on using Swift UI.",
     tags: ["Swift", "Swift UI",],
     imageUrl: warCards,
     siteUrl: null,
