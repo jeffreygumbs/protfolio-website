@@ -69,7 +69,7 @@ export const projectsData = [
   {
     title: "Web Application Development Projects",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
+      "Check out the Projects section! It’s a showcase of fun, creative sites I’ve built in my spare time. Click on any that interest you for more info.",
     tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma", "and more"],
     imageUrl: corpcommentImg,
     projectUrl:"/web-projects",
@@ -133,7 +133,7 @@ export const websiteData = [
   {
     title: "AnnAI",
     description:
-      "CorpComment is a web application that allows users to give public feedback to companies.",
+      "Midjourney inspired this project, and using DALL·E, an OpenAI API was fantastic to play with.",
     tags: ["Vite", "Node.js", "Express", "Tailwind", "MongoDB", "OpenAI API"],
     imageUrl: annAi,
     siteUrl: "https://ann-ai.vercel.app/",
@@ -142,7 +142,7 @@ export const websiteData = [
   {
     title: "CodyGPT",
     description:
-      "CorpComment is a web application that allows users to give public feedback to companies.",
+      "ChatGPT inspired CodyGPT, and it was fun to use OpenAI API.",
     tags: ["Vite", "CSS", "Node.js", "Express", "OpenAI API"],
     imageUrl: codyGpt,
     siteUrl: "https://cody-tau.vercel.app/",
@@ -151,7 +151,7 @@ export const websiteData = [
   {
     title: "Anime Fun",
     description:
-      "CorpComment is a web application that allows users to give public feedback to companies.",
+      "My 12-year-old daughter inspired Anime Fun.",
     tags: ["Next.js", "Framer Motion", "Server Actions"],
     imageUrl: animeFun,
     siteUrl: "https://anime-fun-beta.vercel.app/",
