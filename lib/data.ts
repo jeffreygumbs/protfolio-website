@@ -183,7 +183,7 @@ export const mobileData = [
   {
     title: "Ann Chat",
     description:
-      "Ann Chat a cool video & Chat app.",
+      "Ann Chat a cool full stack video & Chat app.",
     tags: ["React Native", "Expo","Node.js","Supabase"],
     imageUrl: annChat,
     siteUrl: null,
