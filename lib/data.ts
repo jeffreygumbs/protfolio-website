@@ -10,6 +10,7 @@ import airBnbUi from "@/public/Airbnb-ui.png";
 import warCards from "@/public/war-card.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
 import animeFun from "@/public/Anime-Fun.png";
+import annChat from "@/public/AnnChat.png";
 
 export const links = [
   {
@@ -178,6 +179,15 @@ export const mobileData = [
     imageUrl: warCards,
     siteUrl: null,
     gitUrl:"https://github.com/jeffreygumbs/War-Card-Game",
+  },
+  {
+    title: "Ann Chat",
+    description:
+      "Ann Chat a cool video & Chat app.",
+    tags: ["React Native", "Expo","Node.js","Supabase"],
+    imageUrl: annChat,
+    siteUrl: null,
+    gitUrl:"https://github.com/jeffreygumbs/annChat",
   },
   
 ]as const;
