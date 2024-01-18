@@ -11,6 +11,7 @@ import warCards from "@/public/war-card.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
 import animeFun from "@/public/Anime-Fun.png";
 import annChat from "@/public/AnnChat.png";
+import teachMe from "@/public/teachme.png";
 
 export const links = [
   {
@@ -157,6 +158,15 @@ export const websiteData = [
     imageUrl: animeFun,
     siteUrl: "https://anime-fun-beta.vercel.app/",
     gitUrl:"https://github.com/jeffreygumbs/anime-fun",
+  },
+  {
+    title: "Teach Me", 
+    description:
+      "This was a very fun test from Inspired Instruction",
+    tags: ["Next.js", "Server Actions", "Prisma", "Tailwind", "Shadcn UI","Supabase", "Authjs", "zod", "resend"],
+    imageUrl: teachMe,
+    siteUrl: "https://inspiredinstruction-test.vercel.app/",
+    gitUrl:"https://github.com/jeffreygumbs/teachme",
   },
   
   
