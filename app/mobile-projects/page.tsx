@@ -26,7 +26,7 @@ function Mobile() {
   return (
     <div>
     <SectionHeading>Mobile Projects</SectionHeading>
-    <div className='flex justify-end mr-36'>
+    <div className='flex justify-end mr-4 sm:mr-36'>
     <BackBtn/>
     </div>
     <div className='flex flex-wrap gap-6 justify-center my-9'>

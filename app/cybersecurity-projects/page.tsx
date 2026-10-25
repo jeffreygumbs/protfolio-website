@@ -6,7 +6,7 @@ function Cyber() {
   return (
   <div>
     <SectionHeading>Cyber Security Projects</SectionHeading>
-    <div className='flex justify-end mr-36'>
+    <div className='flex justify-end mr-4 sm:mr-36'>
     <BackBtn/>
     </div>
     </div>

@@ -24,7 +24,7 @@ export default function Project({title, description, tags, imageUrl, projectUrl}
     className='group gap-3 mb-3 sm:mb-7 last:mb-0'
     >
         <Link href={projectUrl} className=' gap-3'>
-    <section className=' bg-gray-100 dark:bg-white/10 max-w-[42rem] border border-black/5 overflow-hidden sm:pr-8 relative sm:h-[20rem]  group hover:bg-gray-200 dark:hover:bg-white/20 transition rounded-lg'>
+    <section className=' bg-gray-100 dark:bg-white/5 max-w-[42rem] ring-1 ring-black/5 dark:ring-white/10 overflow-hidden sm:pr-8 relative sm:h-[20rem]  group hover:bg-gray-200 dark:hover:bg-white/10 transition rounded-2xl shadow-sm'>
         <div className='pt-4 pb-8 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]'>
         <h3 className='text-2xl font-semibold'>{title}</h3>
         <p className='mt-2 leading-relaxed text-gray-700 dark:text-white/70'>{description}</p>

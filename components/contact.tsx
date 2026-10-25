@@ -16,16 +16,15 @@ export default function Contact() {
         <SectionHeading>Contact Me</SectionHeading>
         <p className='text-gray-700 text-center -mt-6 dark:text-white/80'>Please contact me directly at <a className='underline' href='mailto:jeffreygumbs@gmail.com'>jeffreygumbs@gmail.com</a> or through this form</p>
         <form action={async (formData) => {
-          const {data, error} = await sendEmail(formData)
+          const {error} = await sendEmail(formData)
           if(error){
             toast.error(error);
             return
           }
           toast.success('Email sent successfully')
           }} className='mt-10 flex flex-col dark:text-black'>
-            <input name="senderEmail" className='h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-          name="senderEmail"' type='email' required maxLength={500} placeholder='Your Email'/>
-            <textarea name="message" className='h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none' placeholder='Your Message' required maxLength={5000}/>
+            <input name="senderEmail" className='h-14 px-4 rounded-xl borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-white/30' type='email' required maxLength={500} placeholder='Your Email'/>
+            <textarea name="message" className='h-52 my-3 rounded-xl borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-white/30' placeholder='Your Message' required maxLength={5000}/>
             <SubmitBtn/>
         </form>
     </motion.section>

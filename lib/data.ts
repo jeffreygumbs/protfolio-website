@@ -2,13 +2,12 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import corpcommentImg from "@/public/corpcomment.png";
+import webProjectsImg from "@/public/web-projects.png";
 import annAi from "@/public/AnnAI.png";
 import codyGpt from "@/public/CodyGPT.png";
 import rmtdevImg from "@/public/rmtdev.png";
 import airBnbUi from "@/public/Airbnb-ui.png";
 import warCards from "@/public/war-card.png";
-import wordanalyticsImg from "@/public/wordanalytics.png";
 import animeFun from "@/public/Anime-Fun.png";
 import annChat from "@/public/AnnChat.png";
 import teachMe from "@/public/teachme.png";
@@ -42,28 +41,36 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Successful Bootcamp Graduate Committed to Continuous Learning",
-    location: "Miami, FL",
-    description:
-      "After an intensive 6-month bootcamp program, I proudly earned my Full Stack developer certification. Leveraging my newfound skills, I swiftly secured a position in the field, demonstrating my dedication to continuous growth and excellence.",
-    icon: React.createElement(LuGraduationCap),
-    date: "2006 - present",
-  },
-  {
-    title: "Information Technology",
+    title: "Software Engineer (Self-Employed)",
     location: "Edmonton, AB",
     description:
-      "I worked as an Information Technology Specialist for 8 years at a landscape company, managing a network of over 12 servers and computers, including Windows and Linux servers, workstations, and laptops. I also managed the company's website and web applications and implemented and tested cybersecurity measures to protect the company's data and systems. My work helped to improve the company's efficiency, security, and customer service.",
+      "I lead full-lifecycle development of web and mobile applications for clients — from requirements gathering and design through deployment and maintenance — using React, Node.js, React Native, and Flutter.",
+    icon: React.createElement(FaReact),
+    date: "2023 - present",
+  },
+  {
+    title: "Learning Coach",
+    location: "Edmonton, AB",
+    description:
+      "At Academy of Learning Career College, I guide software and web development students through coursework — providing technical instruction, debugging assistance, and project feedback on programming concepts, databases, and web technologies.",
+    icon: React.createElement(CgWorkAlt),
+    date: "2025 - 2026",
+  },
+  {
+    title: "Software & Web Developer Diploma",
+    location: "Edmonton, AB",
+    description:
+      "Graduated from Academy of Learning Career College, with coursework covering C#, .NET Framework, JavaScript, SQL, HTML/CSS, version control, and project management.",
+    icon: React.createElement(LuGraduationCap),
+    date: "2024 - 2025",
+  },
+  {
+    title: "Information Technology Specialist",
+    location: "Edmonton, AB",
+    description:
+      "Nine years at Classic Landscapes providing technical support and systems administration — managing servers and workstations, leading IT projects like system upgrades, and maintaining the server room environment.",
     icon: React.createElement(CgWorkAlt),
     date: "2014 - 2023",
-  },
-  {
-    title: "Full-Stack Developer",
-    location: "Edmonton, AB",
-    description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "2020 - present",
   },
 ] as const;
 
@@ -71,98 +78,86 @@ export const projectsData = [
   {
     title: "Web Application Development Projects",
     description:
-      "Check out the Web Projects section! It’s a showcase of fun, creative sites I’ve built in my spare time. Click on any that interest you for more info.",
+      "A showcase of web apps I've built — click through for live demos and source code.",
     tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma", "and more"],
-    imageUrl: corpcommentImg,
+    imageUrl: webProjectsImg,
     projectUrl:"/web-projects",
   },
   {
     title: "Mobile Application Development Projects",
     description:
-      "Swipe through my collection of fun and creative mobile apps built during my spare time. Tap any project to dive into the details",
+      "A collection of cross-platform mobile apps I've built — tap any project for details and source code.",
     tags: ["React Native", "Swift", "Kotlin", "Flutter"],
     imageUrl: rmtdevImg,
     projectUrl:"/mobile-projects",
   },
-  {
-    title: "Cyber Security Projects",
-    description:
-      "Explore the dynamic world of cybersecurity, where I will try and combat evolving threats and defend our digital realm. ",
-    tags: ["Mobile Testing", "Web Testing", "Network Testing", "Wifi testing", "and more"],
-    imageUrl: wordanalyticsImg,
-    projectUrl:"/cybersecurity-projects",
-  },
 ];
 
 export const skillsData = [
-  "Python",
-  "Golang",
-  "Rust",
-  "PHP",
-  "Bash Script", 
-  "HTML",
-  "CSS",
-  "SASS",
+  "C#",
+  ".NET",
+  "ASP.NET",
   "JavaScript",
   "TypeScript",
-  "Angular",
-  "Vue",
+  "Python",
+  "HTML",
+  "CSS",
+  "Bootstrap",
+  "Tailwind",
   "React",
+  "Angular",
   "Redux",
-  "Deno",
+  "Next.js",
   "Node.js",
   "Express",
-  "Next.js",
-  "Git",
-  "Tailwind",
-  "Prisma",
-  "Drizzle",
-  "MongoDB",
-  "GraphQL",
-  "Apollo",
+  "Deno",
+  "SQL Server",
+  "MySQL",
   "PostgreSQL",
-  "Django",
-  "Framer Motion",
-  "Docker",
-  "Swift",
-  "Java",
-  "Kotlin",
+  "MongoDB",
+  "Prisma",
+  "Drizzle ORM",
   "React Native",
   "Flutter",
+  "Swift",
+  "Framer Motion",
+  "Git",
+  "Docker",
+  "Agile",
 ] as const;
 
 export const websiteData = [
   {
     title: "AnnAI",
     description:
-      "Midjourney inspired this project, and using DALL·E, an OpenAI API was fantastic to play with.",
+      "An AI image generation app powered by OpenAI's DALL·E API — a Midjourney-style tool with a custom interface.",
     tags: ["Vite", "Node.js", "Express", "Tailwind", "MongoDB", "OpenAI API"],
     imageUrl: annAi,
-    siteUrl: "https://ann-ai.vercel.app/",
+    siteUrl: "https://annai.jeffreygumbs.com/",
     gitUrl:"https://github.com/jeffreygumbs/AnnAI",
   },
   {
     title: "CodyGPT",
     description:
-      "ChatGPT inspired CodyGPT, and it was fun to use OpenAI API.",
+      "A ChatGPT-style AI chat application built on the OpenAI API with a Node.js/Express backend.",
     tags: ["Vite", "CSS", "Node.js", "Express", "OpenAI API"],
-    imageUrl: codyGpt,
-    siteUrl: "https://cody-tau.vercel.app/",
+    imageUrl: Cody,
+    siteUrl: "https://cody.jeffreygumbs.com/",
     gitUrl:"https://github.com/jeffreygumbs/cody",
   },
   {
     title: "Anime Fun",
     description:
-      "My 12-year-old daughter inspired Anime Fun.",
+      "An anime app built with Next.js, Framer Motion, and Server Actions — inspired by my daughter.",
     tags: ["Next.js", "Framer Motion", "Server Actions"],
     imageUrl: animeFun,
-    siteUrl: "https://anime-fun-beta.vercel.app/",
+    siteUrl: "https://animefun.jeffreygumbs.com/",
     gitUrl:"https://github.com/jeffreygumbs/anime-fun",
   },
   {
     title: "Teach Me", 
     description:
-      "This was a very fun test from Inspired Instruction",
+      "A technical assessment for Inspired Instruction — a full-stack app with auth, database, and transactional email.",
     tags: ["Next.js", "Server Actions", "Prisma", "Tailwind", "Shadcn UI","Supabase", "Authjs", "zod", "resend"],
     imageUrl: teachMe,
     siteUrl: "https://inspiredinstruction-test.vercel.app/",
@@ -175,7 +170,7 @@ export const mobileData = [
   {
     title: "Airbnb UI Clone",
     description:
-      "Airbnb inspired this project using React Native & Expo, a fantastic tool.",
+      "A faithful recreation of the Airbnb mobile UI, built with React Native, Expo, and Clerk auth.",
     tags: ["React Native", "Expo","Clerk",],
     imageUrl: airBnbUi,
     siteUrl: null,
@@ -184,7 +179,7 @@ export const mobileData = [
   {
     title: "War Cards Game",
     description:
-      "War Cards Game project, was something I enjoyed working on using Swift UI.",
+      "The classic War card game, built natively for iOS with SwiftUI.",
     tags: ["Swift", "Swift UI",],
     imageUrl: warCards,
     siteUrl: null,
@@ -193,7 +188,7 @@ export const mobileData = [
   {
     title: "Ann Chat",
     description:
-      "Ann Chat a cool full stack video & Chat app.",
+      "A full-stack video and chat app built with React Native, Expo, Node.js, and Supabase.",
     tags: ["React Native", "Expo","Node.js","Supabase"],
     imageUrl: annChat,
     siteUrl: null,

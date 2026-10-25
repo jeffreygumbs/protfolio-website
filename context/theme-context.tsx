@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState, createContext, Children } from 'react'
+import React, { useEffect, useState, createContext } from 'react'
 
 type Theme = 'light' | 'dark'
 
@@ -29,6 +29,8 @@ export default function ThemeContextProvider({children}: ThemeContextProviderPro
         }
     }
     useEffect(() => {
+        /* eslint-disable react-hooks/set-state-in-effect --
+           reading localStorage/matchMedia on mount is required to avoid hydration mismatch */
         const localTheme = window.localStorage.getItem("theme") as Theme | null
         if(localTheme) {
             setTheme(localTheme)
@@ -39,7 +41,7 @@ export default function ThemeContextProvider({children}: ThemeContextProviderPro
             setTheme("dark")
             document.documentElement.classList.add("dark")
         }
-        
+        /* eslint-enable react-hooks/set-state-in-effect */
     },[])
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

@@ -11,8 +11,19 @@ import ThemeContextProvider from '@/context/theme-context'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Jeffrey | Personal Portfolio',
-  description: 'Jeffrey Gumbs is a full-stack web developer based in Alberta, CA with 8 years of experience in web development.',
+  metadataBase: new URL('https://www.jeffreygumbs.com'),
+  title: 'Jeffrey Gumbs | Software Engineer',
+  description: 'Jeffrey Gumbs is a software engineer in Edmonton, AB building web and mobile applications with React, Next.js, C#/.NET, and SQL. Open to full-time opportunities.',
+  keywords: ['Jeffrey Gumbs', 'Software Engineer', 'Web Developer', 'React', 'Next.js', 'C#', '.NET', 'Edmonton', 'Calgary'],
+  openGraph: {
+    title: 'Jeffrey Gumbs | Software Engineer',
+    description: 'Software engineer building web & mobile apps with React, Next.js, C#/.NET, and SQL. Open to full-time opportunities.',
+    url: 'https://www.jeffreygumbs.com',
+    siteName: 'Jeffrey Gumbs Portfolio',
+    images: ['/jeff.jpg'],
+    locale: 'en_CA',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
@@ -21,10 +32,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className='!scroll-smooth'>
-      <body className={`${inter.className} bg-gray-50 dark:bg-gray-900 text-gray-950 dark:text-gray-50 dark:text-opacity-90 relative pt-28 sm:pt-36`}>
-        <div className='bg-[#fbe2e3] dark:bg-[#946363] absolute top[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem]'></div>
-        <div className='bg-[#dbd7fb] dark:bg-[#676394] absolute top[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm: w-[68.75rem]md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem]'></div>
+    <html lang="en" className='scroll-smooth!' suppressHydrationWarning>
+      <body suppressHydrationWarning className={`${inter.className} bg-gray-50 dark:bg-gray-900 text-gray-950 dark:text-gray-50 dark:text-opacity-90 relative pt-28 sm:pt-36`}>
+        <div className='bg-[#fbe2e3] dark:bg-[#946363] absolute -top-24 -z-10 right-44 h-125 w-125 rounded-full blur-[10rem] sm:w-275'></div>
+        <div className='bg-[#dbd7fb] dark:bg-[#676394] absolute -top-4 -z-10 -left-140 h-125 w-200 rounded-full blur-[10rem] sm:w-275 md:-left-132 lg:-left-112 xl:-left-60 2xl:-left-20'></div>
         <ThemeContextProvider>
         <ActiveSectionContextProvider>
         <Header/>

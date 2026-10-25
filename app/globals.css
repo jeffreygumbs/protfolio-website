@@ -1,13 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-html{
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
     --line-color: #e5e7eb
 }
-html.dark{
+html.dark {
     --line-color: rgba(255,255,255,0.2)
 }
-.borderBlack{
+.borderBlack {
     @apply border border-black/10;
 }

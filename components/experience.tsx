@@ -26,6 +26,7 @@ export default function Experience() {
                                 boxShadow: "none",
                                 border: "1px solid rgba(0,0,0,0.05)",
                                 padding: "1.3rem 2rem",
+                                borderRadius: "1rem",
                             }} contentArrowStyle={
                                 {borderRight: theme === "light"
                                 ? "0.4rem solid #9ca3af"
@@ -39,8 +40,8 @@ export default function Experience() {
                             }}
                             >
                                 <h3 className="capitalize font-semibold">{item.title}</h3>
-                                <p className="font-normal !mt-0">{item.location}</p>
-                                <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">{item.description}</p>
+                                <p className="font-normal mt-0!">{item.location}</p>
+                                <p className="mt-1! font-normal! text-gray-700 dark:text-white/75">{item.description}</p>
                             </VerticalTimelineElement>
                         </React.Fragment>
                     ))

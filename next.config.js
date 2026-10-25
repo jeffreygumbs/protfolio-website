@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-        serverActions: true
-      },
-      images: {
+    images: {
         formats: ['image/avif', 'image/webp'],
-      },
+        qualities: [75, 95],
+    },
 }
 
 module.exports = nextConfig
