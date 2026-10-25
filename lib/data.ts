@@ -97,6 +97,8 @@ export const skillsData = [
   "C#",
   ".NET",
   "ASP.NET",
+  "Rust",
+  "GO",
   "JavaScript",
   "TypeScript",
   "Python",
@@ -130,8 +132,8 @@ export const websiteData = [
   {
     title: "AnnAI",
     description:
-      "An AI image generation app powered by OpenAI's DALL·E API — a Midjourney-style tool with a custom interface.",
-    tags: ["Vite", "Node.js", "Express", "Tailwind", "MongoDB", "OpenAI API"],
+      "An AI image generation app powered by Gemini API — a Midjourney-style tool with a custom interface.",
+    tags: ["Vite", "Node.js", "Express", "Tailwind", "MongoDB", "Gemini API"],
     imageUrl: annAi,
     siteUrl: "https://annai.jeffreygumbs.com/",
     gitUrl:"https://github.com/jeffreygumbs/AnnAI",
@@ -139,8 +141,8 @@ export const websiteData = [
   {
     title: "CodyGPT",
     description:
-      "A ChatGPT-style AI chat application built on the OpenAI API with a Node.js/Express backend.",
-    tags: ["Vite", "CSS", "Node.js", "Express", "OpenAI API"],
+      "A ChatGPT-style AI chat application built on the Gemini API with a Node.js/Express backend.",
+    tags: ["Vite", "CSS", "Node.js", "Express", "Gemini API"],
     imageUrl: codyGpt,
     siteUrl: "https://cody.jeffreygumbs.com/",
     gitUrl:"https://github.com/jeffreygumbs/cody",
@@ -160,7 +162,7 @@ export const websiteData = [
       "A technical assessment for Inspired Instruction — a full-stack app with auth, database, and transactional email.",
     tags: ["Next.js", "Server Actions", "Prisma", "Tailwind", "Shadcn UI","Supabase", "Authjs", "zod", "resend"],
     imageUrl: teachMe,
-    siteUrl: "https://inspiredinstruction-test.vercel.app/",
+    siteUrl: "teachme.jeffreygumbs.com",
     gitUrl:"https://github.com/jeffreygumbs/teachme",
   },
   
