@@ -162,7 +162,7 @@ export const websiteData = [
       "A technical assessment for Inspired Instruction — a full-stack app with auth, database, and transactional email.",
     tags: ["Next.js", "Server Actions", "Prisma", "Tailwind", "Shadcn UI","Supabase", "Authjs", "zod", "resend"],
     imageUrl: teachMe,
-    siteUrl: "teachme.jeffreygumbs.com",
+    siteUrl: "https://teachme.jeffreygumbs.com",
     gitUrl:"https://github.com/jeffreygumbs/teachme",
   },
   
