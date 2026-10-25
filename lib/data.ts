@@ -141,7 +141,7 @@ export const websiteData = [
     description:
       "A ChatGPT-style AI chat application built on the OpenAI API with a Node.js/Express backend.",
     tags: ["Vite", "CSS", "Node.js", "Express", "OpenAI API"],
-    imageUrl: Cody,
+    imageUrl: codyGpt,
     siteUrl: "https://cody.jeffreygumbs.com/",
     gitUrl:"https://github.com/jeffreygumbs/cody",
   },
