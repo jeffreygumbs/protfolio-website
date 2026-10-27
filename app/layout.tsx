@@ -7,6 +7,7 @@ import ActiveSectionContextProvider from '@/context/active-section-context'
 import { Toaster } from 'react-hot-toast';
 import ThemeSwitch from '@/components/theme-switch'
 import ThemeContextProvider from '@/context/theme-context'
+import SiteChrome from '@/components/site-chrome'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -34,18 +35,22 @@ export default function RootLayout({
   return (
     <html lang="en" className='scroll-smooth!' suppressHydrationWarning>
       <body suppressHydrationWarning className={`${inter.className} bg-gray-50 dark:bg-gray-900 text-gray-950 dark:text-gray-50 dark:text-opacity-90 relative pt-28 sm:pt-36`}>
+        <SiteChrome>
         <div className='bg-[#fbe2e3] dark:bg-[#946363] absolute -top-24 -z-10 right-44 h-125 w-125 rounded-full blur-[10rem] sm:w-275'></div>
         <div className='bg-[#dbd7fb] dark:bg-[#676394] absolute -top-4 -z-10 -left-140 h-125 w-200 rounded-full blur-[10rem] sm:w-275 md:-left-132 lg:-left-112 xl:-left-60 2xl:-left-20'></div>
+        </SiteChrome>
         <ThemeContextProvider>
         <ActiveSectionContextProvider>
-        <Header/>
+        <SiteChrome><Header/></SiteChrome>
         {children}
+        <SiteChrome>
         <Toaster
   position="top-right"
   reverseOrder={false}
 />
 <Footer/>
 <ThemeSwitch/>
+        </SiteChrome>
         </ActiveSectionContextProvider>
         
         </ThemeContextProvider>
