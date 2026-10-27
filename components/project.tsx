@@ -7,7 +7,7 @@ import type { ProjectCategoryItem } from '@/sanity/lib/types'
 
 type ProjectProps = ProjectCategoryItem
 
-export default function Project({title, description, tags, imageUrl, projectUrl}:ProjectProps) {
+export default function Project({title, description, tags, imageUrl, imageWidth, imageHeight, projectUrl}:ProjectProps) {
     const ref = useRef<HTMLDivElement>(null)
     const {scrollYProgress} = useScroll({
         target:ref,
@@ -34,7 +34,7 @@ export default function Project({title, description, tags, imageUrl, projectUrl}
             ))}
         </ul>
         </div>
-        <Image src={imageUrl} alt={title} quality={95} className='absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl group-even:right-[initial] transition group-even:-left-40 group-hover:-translate-x-3 group-hover:-translate-y-3  group-hover:scale-[1.04] group-hover:-rotate-2 group-even:group-hover:translate-x-3 group-even:group-hover:translate-y-3 group-even:group-hover:rotate-2'/>
+        <Image src={imageUrl} alt={title} quality={95} {...(typeof imageUrl === 'string' ? {width: imageWidth ?? 452, height: imageHeight ?? 300} : {})} className='absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl group-even:right-[initial] transition group-even:-left-40 group-hover:-translate-x-3 group-hover:-translate-y-3  group-hover:scale-[1.04] group-hover:-rotate-2 group-even:group-hover:translate-x-3 group-even:group-hover:translate-y-3 group-even:group-hover:rotate-2'/>
     </section>
     </Link>
     </motion.div>

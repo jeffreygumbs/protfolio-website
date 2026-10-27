@@ -11,7 +11,9 @@ export function CardDefault({title, description, tags, imageUrl, siteUrl, gitUrl
         <Image
           src={imageUrl}
           alt={title}
-          className="h-full w-full object-cover object-top"
+          fill
+          sizes="384px"
+          className="object-cover object-top"
         />
       </div>
       <div className="flex flex-1 flex-col px-6 pt-4 pb-6">

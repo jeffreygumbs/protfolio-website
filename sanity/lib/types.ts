@@ -39,6 +39,8 @@ export type ProjectCategoryItem = {
   description?: string
   tags: readonly string[]
   imageUrl: string | StaticImageData
+  imageWidth?: number
+  imageHeight?: number
   projectUrl: string
 }
 
@@ -47,6 +49,8 @@ export type ProjectItem = {
   description?: string
   tags: readonly string[]
   imageUrl: string | StaticImageData
+  imageWidth?: number
+  imageHeight?: number
   siteUrl: string | null
   gitUrl: string
 }

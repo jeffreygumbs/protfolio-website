@@ -93,14 +93,16 @@ export async function getProjectCategories(): Promise<ProjectCategoryItem[]> {
   if (sanityConfigured) {
     try {
       const docs = await client.fetch<
-        {title: string; description?: string; tags?: string[]; image?: Parameters<typeof urlFor>[0]; linkUrl?: string}[]
-      >(`*[_type == "projectCategory"] | order(order asc){title, description, tags, image, linkUrl}`, {}, CACHE)
+        {title: string; description?: string; tags?: string[]; image?: Parameters<typeof urlFor>[0]; imageMeta?: {width?: number; height?: number}; linkUrl?: string}[]
+      >(`*[_type == "projectCategory"] | order(order asc){title, description, tags, image, "imageMeta": image.asset->metadata.dimensions, linkUrl}`, {}, CACHE)
       if (docs?.length) {
         return docs.map((doc) => ({
           title: doc.title,
           description: doc.description,
           tags: doc.tags ?? [],
           imageUrl: doc.image ? urlFor(doc.image).width(1000).auto('format').url() : '',
+          imageWidth: doc.imageMeta?.width,
+          imageHeight: doc.imageMeta?.height,
           projectUrl: doc.linkUrl ?? '#',
         }))
       }
@@ -114,9 +116,9 @@ export async function getProjectsByCategory(category: 'web' | 'mobile' | 'cyber'
   if (sanityConfigured) {
     try {
       const docs = await client.fetch<
-        {title: string; description?: string; tags?: string[]; image?: Parameters<typeof urlFor>[0]; siteUrl?: string; gitUrl?: string}[]
+        {title: string; description?: string; tags?: string[]; image?: Parameters<typeof urlFor>[0]; imageMeta?: {width?: number; height?: number}; siteUrl?: string; gitUrl?: string}[]
       >(
-        `*[_type == "project" && category == $category] | order(order asc){title, description, tags, image, siteUrl, gitUrl}`,
+        `*[_type == "project" && category == $category] | order(order asc){title, description, tags, image, "imageMeta": image.asset->metadata.dimensions, siteUrl, gitUrl}`,
         {category},
         CACHE,
       )
@@ -126,6 +128,8 @@ export async function getProjectsByCategory(category: 'web' | 'mobile' | 'cyber'
           description: doc.description,
           tags: doc.tags ?? [],
           imageUrl: doc.image ? urlFor(doc.image).width(1000).auto('format').url() : '',
+          imageWidth: doc.imageMeta?.width,
+          imageHeight: doc.imageMeta?.height,
           siteUrl: doc.siteUrl ?? null,
           gitUrl: doc.gitUrl ?? '',
         }))
