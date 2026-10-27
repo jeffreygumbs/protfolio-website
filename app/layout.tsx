@@ -11,14 +11,14 @@ import ThemeContextProvider from '@/context/theme-context'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.jeffreygumbs.com'),
+  metadataBase: new URL('https://jeffreygumbs.com'),
   title: 'Jeffrey Gumbs | Software Engineer',
   description: 'Jeffrey Gumbs is a software engineer in Edmonton, AB building web and mobile applications with React, Next.js, C#/.NET, and SQL. Open to full-time opportunities.',
   keywords: ['Jeffrey Gumbs', 'Software Engineer', 'Web Developer', 'React', 'Next.js', 'C#', '.NET', 'Edmonton', 'Calgary'],
   openGraph: {
     title: 'Jeffrey Gumbs | Software Engineer',
     description: 'Software engineer building web & mobile apps with React, Next.js, C#/.NET, and SQL. Open to full-time opportunities.',
-    url: 'https://www.jeffreygumbs.com',
+    url: 'https://jeffreygumbs.com',
     siteName: 'Jeffrey Gumbs Portfolio',
     images: ['/jeff.jpg'],
     locale: 'en_CA',
