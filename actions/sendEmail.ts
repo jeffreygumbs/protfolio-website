@@ -3,6 +3,7 @@ import React from 'react';
 import { Resend } from 'resend';
 import {validateString, getErrorMessage} from '@/lib/utils'
 import ContactFormEmail from '@/email/contact-form-email'
+import { getSiteSettings } from '@/sanity/lib/queries'
 
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -28,9 +29,10 @@ export const sendEmail = async (formData: FormData) => {
     }
  }
 try{
+    const settings = await getSiteSettings()
     await resend.emails.send({
         from: 'Jeffrey Gumbs Contact Form <onboarding@resend.dev>',
-        to: "jeffreygumbs@gmail.com",
+        to: settings?.contactEmail ?? "jeffreygumbs@gmail.com",
         replyTo: email as string,
         subject: "Contact Form Submission",
         react: React.createElement(ContactFormEmail,{

@@ -1,11 +1,11 @@
 "use client"
 import React,{ useRef } from 'react'
 import Image from 'next/image'
-import { projectsData } from '@/lib/data'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
+import type { ProjectCategoryItem } from '@/sanity/lib/types'
 
-type ProjectProps = typeof projectsData[number] 
+type ProjectProps = ProjectCategoryItem
 
 export default function Project({title, description, tags, imageUrl, projectUrl}:ProjectProps) {
     const ref = useRef<HTMLDivElement>(null)

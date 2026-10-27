@@ -6,20 +6,29 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { experiencesData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import { useTheme } from "@/context/theme-context";
+import { CgWorkAlt } from "react-icons/cg";
+import { FaReact } from "react-icons/fa";
+import { LuGraduationCap } from "react-icons/lu";
+import type { ExperienceItem } from "@/sanity/lib/types";
 
-export default function Experience() {
+const iconMap: Record<string, React.ReactNode> = {
+    work: <CgWorkAlt/>,
+    code: <FaReact/>,
+    graduation: <LuGraduationCap/>,
+}
+
+export default function Experience({items}: {items: ExperienceItem[]}) {
     const {ref, inView} = useSectionInView("Experience");
     const { theme} = useTheme();
-    
+
   return (
     <section ref={ref} id='experience' className="scroll-mt-28 mb-28 sm:mb-40">
         <SectionHeading>My Experience</SectionHeading>
         <VerticalTimeline lineColor="">
                 {
-                    experiencesData.map((item, index) => (
+                    items.map((item, index) => (
                         <React.Fragment key={index}>
                             <VerticalTimelineElement visible={inView} contentStyle={{
                                 background: theme === 'light' ? '#f3f4f6' : "rgba(255, 255, 255, 0.05)",
@@ -33,7 +42,7 @@ export default function Experience() {
                                 : "0.4rem solid rgba(255, 255, 255, 0.5)",}
                             }
                             date={item.date}
-                            icon={item.icon}
+                            icon={typeof item.icon === 'string' ? iconMap[item.icon] ?? iconMap.work : item.icon}
                             iconStyle={{
                                 background: theme === "light" ? "white" : "rgba(255, 255, 255, 0.15)",
                                 fontSize: "1.5rem",

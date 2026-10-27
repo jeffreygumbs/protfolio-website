@@ -10,10 +10,28 @@ import { FaGithubSquare } from 'react-icons/fa'
 import {HiDownload} from'react-icons/hi'
 import { useSectionInView } from '@/lib/hooks'
 import {useActiveSectionContext} from "@/context/active-section-context"
+import {PortableText, type PortableTextComponents} from '@portabletext/react'
+import {urlFor} from '@/sanity/lib/image'
+import type {SiteSettings} from '@/sanity/lib/types'
 
-export default function Intro() {
+const headlineComponents: PortableTextComponents = {
+  block: {
+    normal: ({children}) => <h1 className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl">{children}</h1>,
+  },
+  marks: {
+    strong: ({children}) => <span className="font-bold">{children}</span>,
+    em: ({children}) => <span className="italic">{children}</span>,
+    underline: ({children}) => <span className="underline">{children}</span>,
+  },
+}
+
+export default function Intro({settings}: {settings?: SiteSettings | null}) {
   const {ref} = useSectionInView("Home", 0.5);
   const {setActiveSection, setTimeLastClick} = useActiveSectionContext()
+  const imageUrl = settings?.profileImage ? urlFor(settings.profileImage).width(192).height(192).url() : jeff
+  const resumeUrl = settings?.resumeUrl ?? '/Jeffrey_Gumbs_Resume.pdf'
+  const linkedinUrl = settings?.linkedinUrl ?? 'https://www.linkedin.com/in/jeffrey-gumbs-96889984/'
+  const githubUrl = settings?.githubUrl ?? 'https://github.com/jeffreygumbs'
   return (
     <section ref={ref} id='home' className='mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]'>
         <div className="flex items-center justify-center">
@@ -22,7 +40,7 @@ export default function Intro() {
                 initial={{opacity: 0, scale: 0}}
                 animate={{opacity: 1, scale: 1}}
                 transition={{type: "tween", duration: 0.2}}
-                ><Image alt='Jeffrey Image' src={jeff}  quality="95" priority={true} className='h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl'/></motion.div>
+                ><Image alt='Jeffrey Image' src={imageUrl} width={96} height={96} quality="95" priority={true} className='h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl'/></motion.div>
                 <motion.span 
                 className='absolute text-4xl bottom-0 right-0'
                 initial={{opacity: 0, scale: 0}}
@@ -33,16 +51,25 @@ export default function Intro() {
                 </motion.span>
             </div>
         </div>
-        <motion.h1
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <span className="font-bold">Hello, I'm Jeffrey.</span> I'm a{" "}
-        <span className="font-bold">software engineer</span> based in Edmonton, AB.
-        I enjoy building <span className="italic">sites & apps</span>. My focus is{" "}
-        <span className="underline">React, Next.js, and C#/.NET</span>.
-      </motion.h1>
+        {settings?.introHeadline?.length ? (
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <PortableText value={settings.introHeadline} components={headlineComponents}/>
+          </motion.div>
+        ) : (
+          <motion.h1
+          className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <span className="font-bold">Hello, I'm Jeffrey.</span> I'm a{" "}
+          <span className="font-bold">software engineer</span> based in Edmonton, AB.
+          I enjoy building <span className="italic">sites & apps</span>. My focus is{" "}
+          <span className="underline">React, Next.js, and C#/.NET</span>.
+        </motion.h1>
+        )}
       <motion.div 
       className='flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium'
       initial={{ opacity: 0, y: 100 }}
@@ -52,9 +79,9 @@ export default function Intro() {
       }}
       >
         <Link href="#contact" className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition' onClick={() => { setActiveSection('Contact'); setTimeLastClick(Date.now());}}>Contact me here <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition"/></Link>
-        <a aria-label='View Resume' href='/Jeffrey_Gumbs_Resume.pdf' target='_blank' className='group bg-white dark:bg-white/10 dark:text-white/60 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110  active:scale-105 transition cursor-pointer borderBlack'>View Resume <HiDownload className="opacity-60 group-hover:translate-y-1 transition"/></a>
-        <a aria-label='linkedin url' href='https://www.linkedin.com/in/jeffrey-gumbs-96889984/' target='_blank' className='bg-white dark:bg-white/10 dark:text-white/60 p-4 text-gray-700 flex items-center gap-2 rounded-full outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950  active:scale-105 transition cursor-pointer borderBlack'><BsLinkedin/></a>
-        <a aria-label='github url' href='https://github.com/jeffreygumbs' target='_blank' className='bg-white dark:bg-white/10 dark:text-white/60 p-4 text-gray-700 text-[1.35rem] flex items-center gap-2 rounded-full outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950  active:scale-105 transition cursor-pointer borderBlack'><FaGithubSquare/></a>
+        <a aria-label='View Resume' href={resumeUrl} target='_blank' className='group bg-white dark:bg-white/10 dark:text-white/60 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110  active:scale-105 transition cursor-pointer borderBlack'>View Resume <HiDownload className="opacity-60 group-hover:translate-y-1 transition"/></a>
+        <a aria-label='linkedin url' href={linkedinUrl} target='_blank' className='bg-white dark:bg-white/10 dark:text-white/60 p-4 text-gray-700 flex items-center gap-2 rounded-full outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950  active:scale-105 transition cursor-pointer borderBlack'><BsLinkedin/></a>
+        <a aria-label='github url' href={githubUrl} target='_blank' className='bg-white dark:bg-white/10 dark:text-white/60 p-4 text-gray-700 text-[1.35rem] flex items-center gap-2 rounded-full outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950  active:scale-105 transition cursor-pointer borderBlack'><FaGithubSquare/></a>
       </motion.div>
     </section>
   )

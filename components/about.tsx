@@ -4,8 +4,21 @@ import React from 'react'
 import SectionHeading from './section-heading';
 import {motion} from 'framer-motion';
 import { useSectionInView } from '@/lib/hooks';
+import {PortableText, type PortableTextComponents} from '@portabletext/react'
+import type {SiteSettings} from '@/sanity/lib/types'
 
-export default function About() {
+const aboutComponents: PortableTextComponents = {
+  block: {
+    normal: ({children}) => <p className="mb-3">{children}</p>,
+  },
+  marks: {
+    strong: ({children}) => <span className="font-medium">{children}</span>,
+    em: ({children}) => <span className="italic">{children}</span>,
+    underline: ({children}) => <span className="underline">{children}</span>,
+  },
+}
+
+export default function About({settings}: {settings?: SiteSettings | null}) {
   const {ref} = useSectionInView("About");
   return (
     <motion.section 
@@ -17,8 +30,12 @@ export default function About() {
     id='about'
     >
         <SectionHeading>About Me</SectionHeading>
+        {settings?.aboutText?.length ? (
+          <PortableText value={settings.aboutText} components={aboutComponents}/>
+        ) : (
+          <>
         <p className="mb-3">
-        Driven by a passion for programming, I transitioned from{" "}
+        Driven by a passion for programming, I transitioned from a career in{" "}
         <span className="font-medium">nine years in Information Technology</span> to the world of{" "}
         <span className="font-medium">Software Development</span>.{" "}
         After earning my Software & Web Developer diploma from Academy of Learning Career College, I built my skills in{" "}
@@ -36,6 +53,8 @@ export default function About() {
         <span className="italic">Beyond coding</span>, I relish spending quality time with my family and immersing myself in captivating films.{" "}
         <span className="font-medium">My love for learning extends beyond programming</span> — I'm currently exploring natural language processing (NLP) and the fascinating realms of artificial intelligence and machine learning. Additionally, I'm actively pursuing proficiency in a new language.
       </p>
+      </>
+        )}
         </motion.section>
   )
 }

@@ -34,6 +34,10 @@ export const links = [
     hash: "/#experience",
   },
   {
+    name: "Certificates",
+    hash: "/#certificates",
+  },
+  {
     name: "Contact",
     hash: "/#contact",
   },
@@ -71,6 +75,17 @@ export const experiencesData = [
       "Nine years at Classic Landscapes providing technical support and systems administration — managing servers and workstations, leading IT projects like system upgrades, and maintaining the server room environment.",
     icon: React.createElement(CgWorkAlt),
     date: "2014 - 2023",
+  },
+] as const;
+
+export const certificatesData = [
+  {
+    title: "Software & Web Developer Diploma",
+    issuer: "Academy of Learning Career College",
+    date: "March 2025",
+    description:
+      "Diploma program covering C#, .NET Framework, JavaScript, SQL, HTML/CSS, version control, and project management.",
+    credentialUrl: null,
   },
 ] as const;
 

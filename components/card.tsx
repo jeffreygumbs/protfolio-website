@@ -1,8 +1,8 @@
 'use client'
-import { websiteData } from "@/lib/data";
 import Image from "next/image";
+import type { ProjectItem } from "@/sanity/lib/types";
 
-type ProjectProps = typeof websiteData[number]
+type ProjectProps = ProjectItem
 
 export function CardDefault({title, description, tags, imageUrl, siteUrl, gitUrl}:ProjectProps) {
   return (
