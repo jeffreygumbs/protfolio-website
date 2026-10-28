@@ -1,5 +1,5 @@
 import React from 'react'
-import {Html,Body,Head,Heading,Container,Preview,Section,Text,Tailwind,Button,Link} from '@react-email/components'
+import {Html,Body,Head,Heading,Container,Preview,Section,Text,Tailwind,Button,Link,Img} from '@react-email/components'
 
 type ContactFormEmailProps = {
     message: string
@@ -16,6 +16,7 @@ export default function ContactFormEmail({message, email}:ContactFormEmailProps)
                 <Container className='mx-auto my-10 max-w-[560px] px-4'>
                     <Section className='overflow-hidden rounded-2xl bg-white shadow-sm'>
                         <Section className='bg-indigo-600 px-8 py-6'>
+                            <Img src='https://jeffreygumbs.com/logo.png' alt='JG' width='44' height='44' className='mb-3 rounded-xl'/>
                             <Text className='m-0 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-100'>
                                 jeffreygumbs.com
                             </Text>
