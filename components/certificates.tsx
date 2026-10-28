@@ -13,7 +13,7 @@ export default function Certificates({items}: {items: CertificateItem[]}) {
     const {ref} = useSectionInView("Certificates");
     const hasMore = items.length > PREVIEW_COUNT
   return (
-    <section ref={ref} id='certificates' className='mb-28 w-full max-w-[72rem] scroll-mt-28 sm:mb-40'>
+    <section ref={ref} id='certificates' className='mb-28 w-full max-w-6xl scroll-mt-28 sm:mb-40'>
         <SectionHeading>Certificates & Diplomas</SectionHeading>
         <CertificatesGrid items={items.slice(0, PREVIEW_COUNT)}/>
         {hasMore && (

@@ -33,7 +33,7 @@ export default function CertificatesGrid({items}: {items: CertificateItem[]}) {
                         <button
                             type='button'
                             onClick={() => setViewer(cert)}
-                            className='relative aspect-[4/3] w-full cursor-zoom-in overflow-hidden bg-gray-100 dark:bg-white/5'
+                            className='relative aspect-4/3 w-full cursor-zoom-in overflow-hidden bg-gray-100 dark:bg-white/5'
                             aria-label={`View ${cert.title}`}
                         >
                             <Image
@@ -48,7 +48,7 @@ export default function CertificatesGrid({items}: {items: CertificateItem[]}) {
                         <button
                             type='button'
                             onClick={() => setViewer(cert)}
-                            className='relative flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 transition hover:from-gray-200 hover:to-gray-300 dark:from-white/5 dark:to-white/10 dark:hover:from-white/10 dark:hover:to-white/15'
+                            className='relative flex aspect-4/3 w-full items-center justify-center bg-linear-to-br from-gray-100 to-gray-200 transition hover:from-gray-200 hover:to-gray-300 dark:from-white/5 dark:to-white/10 dark:hover:from-white/10 dark:hover:to-white/15'
                         >
                             <span className='flex flex-col items-center gap-2 text-gray-400 dark:text-white/40'>
                                 <HiOutlineDocumentText className='text-5xl'/>
@@ -56,7 +56,7 @@ export default function CertificatesGrid({items}: {items: CertificateItem[]}) {
                             </span>
                         </button>
                     ) : (
-                        <div className='relative flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-white/5 dark:to-white/10'>
+                        <div className='relative flex aspect-4/3 w-full items-center justify-center bg-linear-to-br from-gray-100 to-gray-200 dark:from-white/5 dark:to-white/10'>
                             <TbCertificate className='text-6xl text-gray-300 dark:text-white/20'/>
                         </div>
                     )}
@@ -87,7 +87,7 @@ export default function CertificatesGrid({items}: {items: CertificateItem[]}) {
         <AnimatePresence>
             {viewer && (
                 <motion.div
-                    className='fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm'
+                    className='fixed inset-0 z-9999 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm'
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
                     exit={{opacity: 0}}
