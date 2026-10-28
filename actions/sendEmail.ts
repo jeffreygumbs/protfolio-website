@@ -31,8 +31,8 @@ export const sendEmail = async (formData: FormData) => {
  }
 try{
     const settings = await getSiteSettings()
-    await resend.emails.send({
-        from: 'Jeffrey Gumbs Contact Form <onboarding@resend.dev>',
+    const {error: sendError} = await resend.emails.send({
+        from: 'Jeffrey Gumbs Contact Form <hello@jeffreygumbs.com>',
         to: settings?.contactEmail ?? "jeffreygumbs@gmail.com",
         replyTo: email as string,
         subject: "Contact Form Submission",
@@ -41,6 +41,10 @@ try{
              email: email as string,
             }),
      })
+    if (sendError) {
+        console.error('Admin notification failed:', sendError)
+        return {error: sendError.message}
+    }
 } catch (error: unknown) {
     return {
         error: getErrorMessage(error),
