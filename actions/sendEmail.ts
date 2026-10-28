@@ -3,6 +3,7 @@ import React from 'react';
 import { Resend } from 'resend';
 import {validateString, getErrorMessage} from '@/lib/utils'
 import ContactFormEmail from '@/email/contact-form-email'
+import AutoReplyEmail from '@/email/auto-reply-email'
 import { getSiteSettings } from '@/sanity/lib/queries'
 
 
@@ -44,6 +45,19 @@ try{
     return {
         error: getErrorMessage(error),
     }
+}
+// best-effort auto-reply — requires a verified sending domain in Resend
+try{
+    await resend.emails.send({
+        from: 'Jeffrey Gumbs <hello@jeffreygumbs.com>',
+        to: email as string,
+        subject: "Thanks for reaching out — Jeffrey Gumbs",
+        react: React.createElement(AutoReplyEmail,{
+            message: message as string,
+            }),
+     })
+} catch {
+    // auto-reply is best-effort — never fail the form over it
 }
 return{}
 }
