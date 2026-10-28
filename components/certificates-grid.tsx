@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { BsBoxArrowUpRight, BsX } from 'react-icons/bs'
 import { HiOutlineDocumentText } from 'react-icons/hi'
 import { LuCalendarDays } from 'react-icons/lu'
+import { TbCertificate } from 'react-icons/tb'
 import type { CertificateItem } from '@/sanity/lib/types'
 
 export default function CertificatesGrid({items}: {items: CertificateItem[]}) {
@@ -28,7 +29,7 @@ export default function CertificatesGrid({items}: {items: CertificateItem[]}) {
                     transition={{delay: index * 0.06, duration: 0.4}}
                     viewport={{once: true}}
                 >
-                    {cert.imageUrl && (
+                    {cert.imageUrl ? (
                         <button
                             type='button'
                             onClick={() => typeof cert.imageUrl === 'string' && setLightbox(cert.imageUrl)}
@@ -40,9 +41,24 @@ export default function CertificatesGrid({items}: {items: CertificateItem[]}) {
                                 alt={cert.title}
                                 fill
                                 sizes="(min-width: 1024px) 22rem, (min-width: 640px) 22rem, 100vw"
-                                className='object-cover object-top transition-transform duration-500 group-hover:scale-105'
+                                className='object-contain p-3 transition-transform duration-500 group-hover:scale-105'
                             />
                         </button>
+                    ) : cert.fileUrl ? (
+                        <a
+                            href={cert.fileUrl}
+                            target='_blank'
+                            className='relative flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 transition hover:from-gray-200 hover:to-gray-300 dark:from-white/5 dark:to-white/10 dark:hover:from-white/10 dark:hover:to-white/15'
+                        >
+                            <span className='flex flex-col items-center gap-2 text-gray-400 dark:text-white/40'>
+                                <HiOutlineDocumentText className='text-5xl'/>
+                                <span className='text-xs font-semibold uppercase tracking-wider'>View PDF</span>
+                            </span>
+                        </a>
+                    ) : (
+                        <div className='relative flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-white/5 dark:to-white/10'>
+                            <TbCertificate className='text-6xl text-gray-300 dark:text-white/20'/>
+                        </div>
                     )}
                     <div className='flex flex-1 flex-col p-5 text-left'>
                         <h3 className='text-lg font-semibold tracking-tight text-gray-900 dark:text-white'>{cert.title}</h3>

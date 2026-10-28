@@ -6,9 +6,9 @@ import { getCertificates } from '@/sanity/lib/queries'
 export default async function CertificatesPage() {
   const items = await getCertificates()
   return (
-    <div className='w-full max-w-[72rem] px-4'>
+    <div className='mx-auto w-full max-w-[72rem] px-4'>
     <SectionHeading>Certificates & Diplomas</SectionHeading>
-    <div className='flex justify-end mr-4 sm:mr-36'>
+    <div className='mb-2 flex justify-end'>
     <BackBtn/>
     </div>
     <CertificatesGrid items={items}/>
