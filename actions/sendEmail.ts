@@ -48,7 +48,7 @@ try{
 }
 // best-effort auto-reply — requires a verified sending domain in Resend
 try{
-    await resend.emails.send({
+    const {error: replyError} = await resend.emails.send({
         from: 'Jeffrey Gumbs <hello@jeffreygumbs.com>',
         to: email as string,
         subject: "Thanks for reaching out — Jeffrey Gumbs",
@@ -56,8 +56,9 @@ try{
             message: message as string,
             }),
      })
-} catch {
-    // auto-reply is best-effort — never fail the form over it
+    if (replyError) console.error('Auto-reply failed:', replyError)
+} catch (error: unknown) {
+    console.error('Auto-reply threw:', getErrorMessage(error))
 }
 return{}
 }
