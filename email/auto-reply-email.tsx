@@ -1,5 +1,5 @@
 import React from 'react'
-import {Html,Body,Head,Heading,Container,Preview,Section,Text,Tailwind,Button,Link,Img,Hr} from '@react-email/components'
+import {Html,Body,Head,Heading,Container,Preview,Section,Text,Tailwind,Button,Link,Img} from '@react-email/components'
 
 type AutoReplyEmailProps = {
     message: string
