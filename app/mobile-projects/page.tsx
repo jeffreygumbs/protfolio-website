@@ -9,7 +9,7 @@ export default async function Mobile() {
     <div>
     <SectionHeading>Mobile Projects</SectionHeading>
     <div className='flex justify-end mr-4 sm:mr-36'>
-    <BackBtn/>
+    <BackBtn location='/#projects'/>
     </div>
     <ProjectGrid items={items}/>
     </div>

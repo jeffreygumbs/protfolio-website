@@ -3,9 +3,13 @@
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
 import { useRouter } from 'next/navigation';
 
-export default function BackBtn() {
+interface BackBtnProps {
+  location: string;
+}
+
+export default function BackBtn({ location }: BackBtnProps) {
     const router = useRouter();
-    const goBack = () => router.push('/#projects');
+    const goBack = () => router.push(location);
 
   return (
     <button

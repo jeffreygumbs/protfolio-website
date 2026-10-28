@@ -7,7 +7,7 @@ function Cyber() {
   <div>
     <SectionHeading>Cyber Security Projects</SectionHeading>
     <div className='flex justify-end mr-4 sm:mr-36'>
-    <BackBtn/>
+    <BackBtn location='/#projects'/>
     </div>
     </div>
   )

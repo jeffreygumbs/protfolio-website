@@ -9,7 +9,7 @@ export default async function CertificatesPage() {
     <div className='mx-auto w-full max-w-[72rem] px-4'>
     <SectionHeading>Certificates & Diplomas</SectionHeading>
     <div className='mb-2 flex justify-end'>
-    <BackBtn/>
+    <BackBtn location='/#certificates'/>
     </div>
     <CertificatesGrid items={items}/>
     </div>
