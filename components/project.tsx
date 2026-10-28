@@ -24,17 +24,17 @@ export default function Project({title, description, tags, imageUrl, imageWidth,
     className='group gap-3 mb-3 sm:mb-7 last:mb-0'
     >
         <Link href={projectUrl} className=' gap-3'>
-    <section className=' bg-gray-100 dark:bg-white/5 max-w-[42rem] ring-1 ring-black/5 dark:ring-white/10 overflow-hidden sm:pr-8 relative sm:h-[20rem]  group hover:bg-gray-200 dark:hover:bg-white/10 transition rounded-2xl shadow-sm'>
-        <div className='pt-4 pb-8 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]'>
+    <section className=' bg-gray-100 dark:bg-white/5 max-w-2xl ring-1 ring-black/5 dark:ring-white/10 overflow-hidden sm:pr-8 relative sm:h-80  group hover:bg-gray-200 dark:hover:bg-white/10 transition rounded-2xl shadow-sm'>
+        <div className='pt-4 pb-8 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-72'>
         <h3 className='text-2xl font-semibold'>{title}</h3>
         <p className='mt-2 leading-relaxed text-gray-700 dark:text-white/70'>{description}</p>
         <ul className='flex flex-wrap mt-4 gap-2 sm:mt-auto'>
             {tags.map((tag, index) => (
-                <li className='bg-black/[0.9] font-semibold px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white dark:text-white/70 rounded-full' key={index}>{tag}</li>
+                <li className='bg-black/90 font-semibold px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white dark:text-white/70 rounded-full' key={index}>{tag}</li>
             ))}
         </ul>
         </div>
-        <Image src={imageUrl} alt={title} quality={95} {...(typeof imageUrl === 'string' ? {width: imageWidth ?? 452, height: imageHeight ?? 300} : {})} className='absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl group-even:right-[initial] transition group-even:-left-40 group-hover:-translate-x-3 group-hover:-translate-y-3  group-hover:scale-[1.04] group-hover:-rotate-2 group-even:group-hover:translate-x-3 group-even:group-hover:translate-y-3 group-even:group-hover:rotate-2'/>
+        <Image src={imageUrl} alt={title} quality={95} {...(typeof imageUrl === 'string' ? {width: imageWidth ?? 452, height: imageHeight ?? 300} : {})} className='absolute hidden sm:block top-8 -right-40 w-113 rounded-t-lg shadow-2xl group-even:right-[initial] transition group-even:-left-40 group-hover:-translate-x-3 group-hover:-translate-y-3  group-hover:scale-[1.04] group-hover:-rotate-2 group-even:group-hover:translate-x-3 group-even:group-hover:translate-y-3 group-even:group-hover:rotate-2'/>
     </section>
     </Link>
     </motion.div>

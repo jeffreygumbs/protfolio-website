@@ -16,7 +16,7 @@ import type {SiteSettings} from '@/sanity/lib/types'
 
 const headlineComponents: PortableTextComponents = {
   block: {
-    normal: ({children}) => <h1 className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl">{children}</h1>,
+    normal: ({children}) => <h1 className="mb-10 mt-4 px-4 text-2xl font-medium leading-normal! sm:text-4xl">{children}</h1>,
   },
   marks: {
     strong: ({children}) => <span className="font-bold">{children}</span>,
@@ -33,7 +33,7 @@ export default function Intro({settings}: {settings?: SiteSettings | null}) {
   const linkedinUrl = settings?.linkedinUrl ?? 'https://www.linkedin.com/in/jeffrey-gumbs-96889984/'
   const githubUrl = settings?.githubUrl ?? 'https://github.com/jeffreygumbs'
   return (
-    <section ref={ref} id='home' className='mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]'>
+    <section ref={ref} id='home' className='mb-28 max-w-200 text-center sm:mb-0 scroll-mt-[100rem]'>
         <div className="flex items-center justify-center">
             <div className='relative'>
                 <motion.div
@@ -60,7 +60,7 @@ export default function Intro({settings}: {settings?: SiteSettings | null}) {
           </motion.div>
         ) : (
           <motion.h1
-          className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
+          className="mb-10 mt-4 px-4 text-2xl font-medium leading-normal! sm:text-4xl"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >
