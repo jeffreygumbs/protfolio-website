@@ -11,3 +11,28 @@ html.dark {
 .borderBlack {
     @apply border border-black/10;
 }
+
+@keyframes blob-drift-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-6rem, 4rem) scale(1.1); }
+    66% { transform: translate(4rem, -3rem) scale(0.95); }
+}
+
+@keyframes blob-drift-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(7rem, -5rem) scale(1.08); }
+}
+
+.animate-blob-1 {
+    animation: blob-drift-1 22s ease-in-out infinite;
+}
+
+.animate-blob-2 {
+    animation: blob-drift-2 26s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-blob-1, .animate-blob-2 {
+        animation: none;
+    }
+}
