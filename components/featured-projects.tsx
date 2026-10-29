@@ -10,7 +10,7 @@ export default function FeaturedProjects({projects}: {projects: ProjectItem[]}) 
   return (
     <div className='mb-20'>
         <h3 className='mb-6 text-center text-sm font-semibold uppercase tracking-wider text-gray-400 dark:text-white/40'>Featured Projects</h3>
-        <ul className='grid gap-5 sm:grid-cols-3'>
+        <ul className='mx-auto grid max-w-6xl gap-5 sm:grid-cols-3'>
             {projects.map((project, index) => (
                 <motion.li
                     key={index}
@@ -29,13 +29,13 @@ export default function FeaturedProjects({projects}: {projects: ProjectItem[]}) 
                     </ul>
                     <div className='mt-4 flex gap-2'>
                         {project.siteUrl && (
-                            <a href={project.siteUrl} target='_blank' className='inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-gray-900 px-3 py-2 text-xs font-semibold text-white transition hover:bg-gray-700 dark:bg-white/15 dark:hover:bg-white/25'>
+                            <a href={project.siteUrl} target='_blank' className='inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-gray-700 dark:bg-white/15 dark:hover:bg-white/25'>
                                 Live <BsBoxArrowUpRight/>
                             </a>
                         )}
                         {project.gitUrl && (
-                            <a href={project.gitUrl} target='_blank' aria-label={`${project.title} source code`} className='inline-flex items-center justify-center rounded-full px-3 py-2 text-gray-700 ring-1 ring-gray-300 transition hover:text-gray-950 hover:ring-gray-900 dark:text-white/80 dark:ring-white/20 dark:hover:ring-white/50'>
-                                <FaGithub className='text-base'/>
+                            <a href={project.gitUrl} target='_blank' aria-label={`${project.title} source code`} className='inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wide text-gray-700 ring-1 ring-gray-300 transition hover:text-gray-950 hover:ring-gray-900 dark:text-white/80 dark:ring-white/20 dark:hover:ring-white/50'>
+                                <FaGithub className='text-sm'/> Code
                             </a>
                         )}
                     </div>
