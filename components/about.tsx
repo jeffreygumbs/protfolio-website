@@ -35,9 +35,9 @@ export default function About({settings}: {settings?: SiteSettings | null}) {
         ) : (
           <>
         <p className="mb-3">
-        Driven by a passion for programming, I transitioned from a career in{" "}
-        <span className="font-medium">nine years in Information Technology</span> to the world of{" "}
-        <span className="font-medium">Software Development</span>.{" "}
+        Driven by a passion for programming, I transitioned from a{" "}
+        <span className="font-medium">nine-year career in Information Technology</span> to the world of{" "}
+        <span className="font-medium">software development</span>.{" "}
         After earning my Software & Web Developer diploma from Academy of Learning Career College, I built my skills in{" "}
         <span className="font-medium">full-stack development</span>,{" "}
         particularly with{" "}

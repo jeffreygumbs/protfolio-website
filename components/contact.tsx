@@ -14,7 +14,7 @@ export default function Contact({email = 'jeffreygumbs@gmail.com'}: {email?: str
   return (
     <motion.section ref={ref} id='contact' className='scroll-mt-28 mb-28 sm:mb-28 w-[min(100%, 38rem)]' initial={{ opacity:0}} whileInView={{ opacity:1}} transition={{duration: 1}} viewport={{once: true}}>
         <SectionHeading>Contact Me</SectionHeading>
-        <p className='text-gray-700 text-center -mt-6 dark:text-white/80'>Please contact me directly at <a className='underline' href={`mailto:${email}`}>{email}</a> or through this form</p>
+        <p className='text-gray-700 text-center -mt-6 dark:text-white/80'>Please contact me directly at <a className='underline' href={`mailto:${email}`}>{email}</a> or through this form.</p>
         <form action={async (formData) => {
           const {error} = await sendEmail(formData)
           if(error){
