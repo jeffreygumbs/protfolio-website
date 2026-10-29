@@ -9,6 +9,7 @@ import Skills from "@/components/skills";
 import {
   getCertificates,
   getExperiences,
+  getFeaturedProjects,
   getProjectCategories,
   getSiteSettings,
   getSkills,
@@ -17,20 +18,21 @@ import {
 
 
 export default async function Home() {
-  const [settings, experiences, skills, certificates, categories] = await Promise.all([
+  const [settings, experiences, skills, certificates, categories, featured] = await Promise.all([
     getSiteSettings(),
     getExperiences(),
     getSkills(),
     getCertificates(),
     getProjectCategories(),
+    getFeaturedProjects(),
   ]);
   return (
     <main className="flex flex-col items-center px-4">
       <Intro settings={settings}/>
       <SectionDivider/>
       <About settings={settings}/>
-      <Projects projects={categories}/>
-      <Skills skills={skills}/>
+      <Projects projects={categories} featured={featured}/>
+      <Skills groups={skills}/>
       <Experience items={experiences}/>
       <Certificates items={certificates}/>
       <Contact email={settings?.contactEmail}/>

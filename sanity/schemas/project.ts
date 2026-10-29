@@ -24,6 +24,7 @@ export const project = defineType({
       },
       validation: (rule) => rule.required(),
     }),
+    defineField({name: 'featured', title: 'Show on Homepage', type: 'boolean', initialValue: false, description: 'Featured projects appear directly on the homepage'}),
     defineField({name: 'order', title: 'Sort Order', type: 'number'}),
   ],
   orderings: [{title: 'Order', name: 'orderAsc', by: [{field: 'order', direction: 'asc'}]}],

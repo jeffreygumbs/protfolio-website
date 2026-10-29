@@ -53,4 +53,10 @@ export type ProjectItem = {
   imageHeight?: number
   siteUrl: string | null
   gitUrl: string
+  featured?: boolean
+}
+
+export type SkillGroup = {
+  category: string
+  items: string[]
 }
