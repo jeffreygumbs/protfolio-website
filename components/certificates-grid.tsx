@@ -1,21 +1,16 @@
 "use client"
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import Image from 'next/image'
-import { AnimatePresence, motion } from 'framer-motion'
-import { BsBoxArrowUpRight, BsX } from 'react-icons/bs'
+import { motion } from 'framer-motion'
+import { BsBoxArrowUpRight } from 'react-icons/bs'
 import { HiOutlineDocumentText } from 'react-icons/hi'
 import { LuCalendarDays } from 'react-icons/lu'
 import { TbCertificate } from 'react-icons/tb'
+import DocViewer from './doc-viewer'
 import type { CertificateItem } from '@/sanity/lib/types'
 
 export default function CertificatesGrid({items}: {items: CertificateItem[]}) {
     const [viewer, setViewer] = useState<CertificateItem | null>(null)
-
-    useEffect(() => {
-        const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setViewer(null)
-        window.addEventListener('keydown', onKey)
-        return () => window.removeEventListener('keydown', onKey)
-    }, [])
 
   return (
     <>
@@ -84,64 +79,10 @@ export default function CertificatesGrid({items}: {items: CertificateItem[]}) {
             ))}
         </ul>
 
-        <AnimatePresence>
-            {viewer && (
-                <motion.div
-                    className='fixed inset-0 z-9999 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm'
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    exit={{opacity: 0}}
-                    onClick={() => setViewer(null)}
-                >
-                    <motion.div
-                        className='flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-xl bg-white shadow-2xl dark:bg-gray-900'
-                        initial={{scale: 0.9, opacity: 0}}
-                        animate={{scale: 1, opacity: 1}}
-                        exit={{scale: 0.9, opacity: 0}}
-                        transition={{type: 'spring', stiffness: 260, damping: 25}}
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <div className='flex items-center justify-between gap-4 border-b border-gray-200 px-5 py-3 dark:border-white/10'>
-                            <div className='min-w-0'>
-                                <h4 className='truncate text-sm font-semibold text-gray-900 dark:text-white'>{viewer.title}</h4>
-                                <p className='truncate text-xs text-gray-500 dark:text-white/50'>{viewer.issuer}</p>
-                            </div>
-                            <div className='flex shrink-0 items-center gap-2'>
-                                {viewer.fileUrl && (
-                                    <a href={viewer.fileUrl} target='_blank' className='rounded-full px-3 py-1.5 text-xs font-semibold text-indigo-600 ring-1 ring-indigo-200 transition hover:bg-indigo-50 dark:text-indigo-400 dark:ring-indigo-900 dark:hover:bg-indigo-950'>
-                                        Open in new tab <BsBoxArrowUpRight className='inline'/>
-                                    </a>
-                                )}
-                                <button
-                                    type='button'
-                                    onClick={() => setViewer(null)}
-                                    aria-label='Close'
-                                    className='flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200 dark:bg-white/10 dark:text-white/70 dark:hover:bg-white/20'
-                                >
-                                    <BsX className='text-xl'/>
-                                </button>
-                            </div>
-                        </div>
-                        <div className='min-h-[60vh] flex-1 bg-gray-100 dark:bg-black/40'>
-                            {viewer.fileUrl ? (
-                                <iframe
-                                    src={viewer.fileUrl}
-                                    title={viewer.title}
-                                    className='h-[75vh] w-full border-0'
-                                />
-                            ) : typeof viewer.imageUrl === 'string' ? (
-                                // eslint-disable-next-line @next/next/no-img-element
-                                <img
-                                    src={viewer.imageUrl}
-                                    alt={viewer.title}
-                                    className='mx-auto max-h-[75vh] object-contain'
-                                />
-                            ) : null}
-                        </div>
-                    </motion.div>
-                </motion.div>
-            )}
-        </AnimatePresence>
+        <DocViewer
+            item={viewer ? {title: viewer.title, subtitle: viewer.issuer, fileUrl: viewer.fileUrl, imageUrl: typeof viewer.imageUrl === 'string' ? viewer.imageUrl : null} : null}
+            onClose={() => setViewer(null)}
+        />
     </>
   )
 }

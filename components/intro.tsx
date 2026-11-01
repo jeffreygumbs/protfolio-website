@@ -12,6 +12,7 @@ import { useSectionInView } from '@/lib/hooks'
 import {useActiveSectionContext} from "@/context/active-section-context"
 import {PortableText, type PortableTextComponents} from '@portabletext/react'
 import {urlFor} from '@/sanity/lib/image'
+import DocViewer from './doc-viewer'
 import type {SiteSettings} from '@/sanity/lib/types'
 
 const headlineComponents: PortableTextComponents = {
@@ -28,6 +29,7 @@ const headlineComponents: PortableTextComponents = {
 export default function Intro({settings}: {settings?: SiteSettings | null}) {
   const {ref} = useSectionInView("Home", 0.5);
   const {setActiveSection, setTimeLastClick} = useActiveSectionContext()
+  const [resumeOpen, setResumeOpen] = React.useState(false)
   const imageUrl = settings?.profileImage ? urlFor(settings.profileImage).width(192).height(192).url() : jeff
   const resumeUrl = settings?.resumeUrl ?? '/Jeffrey_Gumbs_Resume.pdf'
   const linkedinUrl = settings?.linkedinUrl ?? 'https://www.linkedin.com/in/jeffrey-gumbs-96889984/'
@@ -79,10 +81,14 @@ export default function Intro({settings}: {settings?: SiteSettings | null}) {
       }}
       >
         <Link href="/#contact" className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition' onClick={() => { setActiveSection('Contact'); setTimeLastClick(Date.now());}}>Contact me here <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition"/></Link>
-        <a aria-label='View Resume' href={resumeUrl} target='_blank' className='group bg-white dark:bg-white/10 dark:text-white/60 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110  active:scale-105 transition cursor-pointer borderBlack'>View Resume <HiDownload className="opacity-60 group-hover:translate-y-1 transition"/></a>
+        <button aria-label='View Resume' type='button' onClick={() => setResumeOpen(true)} className='group bg-white dark:bg-white/10 dark:text-white/60 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110  active:scale-105 transition cursor-pointer borderBlack'>View Resume <HiDownload className="opacity-60 group-hover:translate-y-1 transition"/></button>
         <a aria-label='linkedin url' href={linkedinUrl} target='_blank' className='bg-white dark:bg-white/10 dark:text-white/60 p-4 text-gray-700 flex items-center gap-2 rounded-full outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950  active:scale-105 transition cursor-pointer borderBlack'><BsLinkedin/></a>
         <a aria-label='github url' href={githubUrl} target='_blank' className='bg-white dark:bg-white/10 dark:text-white/60 p-4 text-gray-700 text-[1.35rem] flex items-center gap-2 rounded-full outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950  active:scale-105 transition cursor-pointer borderBlack'><FaGithubSquare/></a>
       </motion.div>
+      <DocViewer
+        item={resumeOpen ? {title: 'Resume — Jeffrey Gumbs', subtitle: 'Software Engineer', fileUrl: resumeUrl} : null}
+        onClose={() => setResumeOpen(false)}
+      />
     </section>
   )
 }
