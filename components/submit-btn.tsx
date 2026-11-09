@@ -1,12 +1,12 @@
 import { FaPaperPlane } from 'react-icons/fa';
 import { useFormStatus } from 'react-dom'
 
-export default function SubmitBtn() {
+export default function SubmitBtn({ disabled = false }: { disabled?: boolean }) {
   const { pending } = useFormStatus();
   return (
     <button
       type='submit'
-      disabled={pending}
+      disabled={pending || disabled}
       className='group flex h-12 w-32 items-center justify-center gap-2 self-end rounded-full bg-gray-900 font-medium text-white transition-all hover:scale-105 hover:bg-gray-950 focus:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 active:scale-100 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100 dark:bg-white/15 dark:text-white dark:hover:bg-white/25'
     >
       {pending ? (
