@@ -1,27 +1,112 @@
 "use client"
-import React, {useState} from 'react'
+import React, {useMemo, useState} from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { BsBoxArrowUpRight } from 'react-icons/bs'
-import { HiOutlineDocumentText } from 'react-icons/hi'
+import { HiOutlineDocumentText, HiOutlineSearch, HiOutlineX } from 'react-icons/hi'
 import { LuCalendarDays } from 'react-icons/lu'
 import { TbCertificate } from 'react-icons/tb'
 import DocViewer from './doc-viewer'
 import type { CertificateItem } from '@/sanity/lib/types'
 
-export default function CertificatesGrid({items}: {items: CertificateItem[]}) {
+const PAGE_SIZE = 6
+
+export default function CertificatesGrid({items, showControls = false}: {items: CertificateItem[], showControls?: boolean}) {
     const [viewer, setViewer] = useState<CertificateItem | null>(null)
+    const [query, setQuery] = useState('')
+    const [issuer, setIssuer] = useState<string | null>(null)
+    const [expanded, setExpanded] = useState(false)
+
+    const issuers = useMemo(
+        () => Array.from(new Set(items.map(c => c.issuer).filter((i): i is string => !!i))).sort(),
+        [items]
+    )
+
+    const filtering = query.trim() !== '' || issuer !== null
+
+    const filtered = useMemo(() => {
+        const q = query.trim().toLowerCase()
+        return items.filter(c =>
+            (!issuer || c.issuer === issuer) &&
+            (!q || [c.title, c.issuer, c.date, c.description].some(f => f?.toLowerCase().includes(q)))
+        )
+    }, [items, query, issuer])
+
+    const visible = !showControls || expanded || filtering ? filtered : filtered.slice(0, PAGE_SIZE)
+    const hiddenCount = filtered.length - visible.length
 
   return (
     <>
+        {showControls && (
+        <div className='mb-6 flex flex-col gap-3'>
+            <div className='relative'>
+                <HiOutlineSearch className='pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-lg text-gray-400'/>
+                <input
+                    type='search'
+                    value={query}
+                    onChange={e => setQuery(e.target.value)}
+                    placeholder='Search certificates by title, issuer, or year...'
+                    aria-label='Search certificates'
+                    className='w-full rounded-full border border-black/10 bg-white py-3 pl-11 pr-11 text-sm text-gray-900 shadow-sm outline-none transition placeholder:text-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-white/40'
+                />
+                {query && (
+                    <button
+                        type='button'
+                        onClick={() => setQuery('')}
+                        aria-label='Clear search'
+                        className='absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-gray-400 transition hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-white/10 dark:hover:text-white'
+                    >
+                        <HiOutlineX/>
+                    </button>
+                )}
+            </div>
+            <div className='flex flex-wrap items-center gap-2'>
+                <button
+                    type='button'
+                    onClick={() => setIssuer(null)}
+                    className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition ${issuer === null ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-900' : 'bg-white text-gray-600 ring-1 ring-black/10 hover:ring-black/30 dark:bg-white/5 dark:text-white/70 dark:ring-white/15 dark:hover:ring-white/40'}`}
+                >
+                    All
+                </button>
+                {issuers.map(i => (
+                    <button
+                        key={i}
+                        type='button'
+                        onClick={() => setIssuer(issuer === i ? null : i)}
+                        aria-pressed={issuer === i}
+                        className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition ${issuer === i ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-900' : 'bg-white text-gray-600 ring-1 ring-black/10 hover:ring-black/30 dark:bg-white/5 dark:text-white/70 dark:ring-white/15 dark:hover:ring-white/40'}`}
+                    >
+                        {i}
+                    </button>
+                ))}
+                <span className='ml-auto text-xs text-gray-400 dark:text-white/40'>
+                    Showing {visible.length} of {items.length}
+                </span>
+            </div>
+        </div>
+        )}
+
+        {filtered.length === 0 ? (
+            <div className='flex flex-col items-center gap-2 rounded-2xl border border-dashed border-gray-300 py-14 text-center dark:border-white/15'>
+                <TbCertificate className='text-4xl text-gray-300 dark:text-white/25'/>
+                <p className='text-sm font-medium text-gray-500 dark:text-white/50'>No certificates match &ldquo;{query}&rdquo;</p>
+                <button
+                    type='button'
+                    onClick={() => {setQuery(''); setIssuer(null)}}
+                    className='text-sm font-semibold text-indigo-600 hover:underline dark:text-indigo-400'
+                >
+                    Clear filters
+                </button>
+            </div>
+        ) : (
         <ul className='grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
-            {items.map((cert, index) => (
+            {visible.map((cert, index) => (
                 <motion.li
                     className='group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-white/5 dark:ring-white/10'
-                    key={index}
+                    key={`${cert.title}-${index}`}
                     initial={{opacity: 0, y: 60}}
                     whileInView={{opacity: 1, y: 0}}
-                    transition={{delay: index * 0.06, duration: 0.4}}
+                    transition={{delay: (index % PAGE_SIZE) * 0.06, duration: 0.4}}
                     viewport={{once: true}}
                 >
                     {cert.imageUrl ? (
@@ -78,6 +163,30 @@ export default function CertificatesGrid({items}: {items: CertificateItem[]}) {
                 </motion.li>
             ))}
         </ul>
+        )}
+
+        {hiddenCount > 0 && (
+            <div className='mt-8 flex justify-center'>
+                <button
+                    type='button'
+                    onClick={() => setExpanded(true)}
+                    className='rounded-full bg-gray-900 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-white/80'
+                >
+                    Show {hiddenCount} more
+                </button>
+            </div>
+        )}
+        {expanded && !filtering && filtered.length > PAGE_SIZE && (
+            <div className='mt-8 flex justify-center'>
+                <button
+                    type='button'
+                    onClick={() => setExpanded(false)}
+                    className='rounded-full px-6 py-2.5 text-sm font-semibold text-gray-600 ring-1 ring-gray-300 transition hover:ring-gray-900 hover:text-gray-900 dark:text-white/70 dark:ring-white/20 dark:hover:ring-white/50 dark:hover:text-white'
+                >
+                    Show less
+                </button>
+            </div>
+        )}
 
         <DocViewer
             item={viewer ? {title: viewer.title, subtitle: viewer.issuer, fileUrl: viewer.fileUrl, imageUrl: typeof viewer.imageUrl === 'string' ? viewer.imageUrl : null} : null}

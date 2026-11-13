@@ -11,7 +11,7 @@ export default async function CertificatesPage() {
     <div className='mb-2 flex justify-end'>
     <BackBtn location='/#certificates'/>
     </div>
-    <CertificatesGrid items={items}/>
+    <CertificatesGrid items={items} showControls/>
     </div>
   )
 }
