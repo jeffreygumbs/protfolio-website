@@ -90,7 +90,7 @@ export async function getCertificates(): Promise<CertificateItem[]> {
         (Omit<CertificateItem, 'imageUrl' | 'fileUrl'> & {diplomaImage?: Parameters<typeof urlFor>[0]; diplomaFileUrl?: string})[]
       >(
         `*[_type == "certificate"] | order(order asc){
-          title, issuer, date, description, credentialUrl, diplomaImage,
+          title, issuer, date, description, credentialUrl, featured, diplomaImage,
           "diplomaFileUrl": diplomaFile.asset->url
         }`,
         {},

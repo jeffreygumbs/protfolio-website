@@ -1,15 +1,25 @@
 "use client"
 import React, {useMemo, useState} from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { BsBoxArrowUpRight } from 'react-icons/bs'
-import { HiOutlineDocumentText, HiOutlineSearch, HiOutlineX } from 'react-icons/hi'
+import { HiOutlineBadgeCheck, HiOutlineDocumentText, HiOutlineSearch, HiOutlineStar, HiOutlineX } from 'react-icons/hi'
 import { LuCalendarDays } from 'react-icons/lu'
 import { TbCertificate } from 'react-icons/tb'
 import DocViewer from './doc-viewer'
 import type { CertificateItem } from '@/sanity/lib/types'
 
 const PAGE_SIZE = 6
+
+const ISSUER_COLORS: Record<string, string> = {
+    'Coursera': '#0056D2',
+    'Udemy': '#A435F0',
+    'Zero to Mastery Academy': '#18181b',
+    'Ec-Council': '#E53935',
+    'Academy of Learning Career College': '#0EA5E9',
+}
+
+const issuerColor = (issuer?: string) => (issuer && ISSUER_COLORS[issuer]) || '#6366f1'
 
 export default function CertificatesGrid({items, showControls = false}: {items: CertificateItem[], showControls?: boolean}) {
     const [viewer, setViewer] = useState<CertificateItem | null>(null)
@@ -74,8 +84,9 @@ export default function CertificatesGrid({items, showControls = false}: {items: 
                         type='button'
                         onClick={() => setIssuer(issuer === i ? null : i)}
                         aria-pressed={issuer === i}
-                        className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition ${issuer === i ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-900' : 'bg-white text-gray-600 ring-1 ring-black/10 hover:ring-black/30 dark:bg-white/5 dark:text-white/70 dark:ring-white/15 dark:hover:ring-white/40'}`}
+                        className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold transition ${issuer === i ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-900' : 'bg-white text-gray-600 ring-1 ring-black/10 hover:ring-black/30 dark:bg-white/5 dark:text-white/70 dark:ring-white/15 dark:hover:ring-white/40'}`}
                     >
+                        <span className='h-2 w-2 rounded-full' style={{backgroundColor: issuerColor(i)}}/>
                         {i}
                     </button>
                 ))}
@@ -100,15 +111,23 @@ export default function CertificatesGrid({items, showControls = false}: {items: 
             </div>
         ) : (
         <ul className='grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
+            <AnimatePresence mode='popLayout'>
             {visible.map((cert, index) => (
                 <motion.li
-                    className='group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-white/5 dark:ring-white/10'
-                    key={`${cert.title}-${index}`}
+                    layout
+                    className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-white/5 ${cert.featured ? 'ring-2 ring-indigo-500/60 dark:ring-indigo-400/50' : 'ring-1 ring-black/5 dark:ring-white/10'}`}
+                    key={cert.title}
                     initial={{opacity: 0, y: 60}}
                     whileInView={{opacity: 1, y: 0}}
-                    transition={{delay: (index % PAGE_SIZE) * 0.06, duration: 0.4}}
+                    exit={{opacity: 0, scale: 0.95}}
+                    transition={{delay: (index % PAGE_SIZE) * 0.05, duration: 0.35}}
                     viewport={{once: true}}
                 >
+                    {cert.featured && (
+                        <span className='absolute left-3 top-3 z-10 inline-flex items-center gap-1 rounded-full bg-indigo-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-md'>
+                            <HiOutlineStar/> Featured
+                        </span>
+                    )}
                     {cert.imageUrl ? (
                         <button
                             type='button'
@@ -143,8 +162,14 @@ export default function CertificatesGrid({items, showControls = false}: {items: 
                     <div className='flex flex-1 flex-col p-5 text-left'>
                         <h3 className='text-lg font-semibold tracking-tight text-gray-900 dark:text-white'>{cert.title}</h3>
                         <p className='mt-1 flex items-center gap-1.5 text-sm text-gray-500 dark:text-white/50'>
+                            <span className='h-2 w-2 shrink-0 rounded-full' style={{backgroundColor: issuerColor(cert.issuer)}}/>
                             {cert.issuer}
                             {cert.date && (<><span aria-hidden>·</span><LuCalendarDays className='text-xs'/>{cert.date}</>)}
+                            {cert.credentialUrl && (
+                                <span className='ml-auto inline-flex items-center gap-0.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400'>
+                                    <HiOutlineBadgeCheck className='text-sm'/> Verified
+                                </span>
+                            )}
                         </p>
                         {cert.description && <p className='mt-2 leading-relaxed text-gray-700 dark:text-white/70'>{cert.description}</p>}
                         <div className='mt-auto flex flex-wrap gap-2 pt-4'>
@@ -162,6 +187,7 @@ export default function CertificatesGrid({items, showControls = false}: {items: 
                     </div>
                 </motion.li>
             ))}
+            </AnimatePresence>
         </ul>
         )}
 

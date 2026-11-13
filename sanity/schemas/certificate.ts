@@ -24,6 +24,7 @@ export const certificate = defineType({
       options: {accept: 'application/pdf'},
     }),
     defineField({name: 'credentialUrl', title: 'Credential URL', type: 'url', description: 'Optional verification link'}),
+    defineField({name: 'featured', title: 'Featured', type: 'boolean', description: 'Highlight this credential — flagship items like diplomas and top certifications.', initialValue: false}),
     defineField({name: 'order', title: 'Sort Order', type: 'number'}),
   ],
   orderings: [{title: 'Order', name: 'orderAsc', by: [{field: 'order', direction: 'asc'}]}],

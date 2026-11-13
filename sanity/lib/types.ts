@@ -32,6 +32,7 @@ export type CertificateItem = {
   imageUrl?: string | StaticImageData
   fileUrl?: string | null
   credentialUrl?: string | null
+  featured?: boolean
 }
 
 export type ProjectCategoryItem = {
